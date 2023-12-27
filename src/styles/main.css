@@ -1,0 +1,35 @@
+@import url(reset.css);
+
+.container{
+    width: 100%;
+    margin: 20px;
+}
+
+.container__tabuleiro > img{
+    width: 547px;
+    position: fixed;
+    z-index: -1;
+
+}
+
+.container__casa {
+    position: absolute;
+    z-index: 1;
+
+}
+
+.container__cartas-sorte-reves {
+    position: absolute;
+    z-index: 2;
+}
+
+.container__jogador > img{
+    width: 25px;
+    position: absolute;
+    z-index: 3;
+}
+
+.container__dados{
+    position: absolute;
+    z-index: 5;
+}
