@@ -12,17 +12,22 @@
     <div class="container">
         <div class="container__tabuleiro">
             <img src="./src/dados/img/tabuleiro-pc.jpg" alt="">
-        </div>
-        <div class="container__casa">
-            <div class="casa">
-                <span>casa aqui</span>
+            <div class="container__tabuleiro__casa">
+                <div class="casa">
+                   <h3>posição</h3>
+                   <h2>nome</h2>
+                   <p>valor</p>
+                </div>
+            </div>
+            <div class="container__tabuleiro__cartas-sorte-reves"></div>
+            <div class="container__tabuleiro__jogador">
+                <img src="./src/dados/img/boneco-gojo-satoru.jpg" alt="">
             </div>
         </div>
-        <div class="container__cartas-sorte-reves"></div>
-        <div class="container__jogador">
-            <img src="./src/dados/img/boneco-gojo-satoru.jpg" alt="">
+        <div class="container__dados">
+            <span id="dado1"></span>
+            <span id="dado2"></span>
         </div>
-        <div class="container__dados"></div>
 
 
 
@@ -31,5 +36,6 @@
 
     <!-- JS -->
     <script src="./src/engine/engine.js" defer></script>
+    <script src="./src/engine/dado.js"></script>
 </body>
 </html>

@@ -12,18 +12,18 @@
 
 }
 
-.container__casa {
+.container__tabuleiro__casa {
     position: absolute;
     z-index: 1;
 
 }
 
-.container__cartas-sorte-reves {
+.container__tabuleiro__cartas-sorte-reves {
     position: absolute;
     z-index: 2;
 }
 
-.container__jogador > img{
+.container__tabuleiro__jogador > img{
     width: 25px;
     position: absolute;
     z-index: 3;
