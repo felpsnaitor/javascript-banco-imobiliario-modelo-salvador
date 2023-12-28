@@ -5,17 +5,56 @@
     margin: 20px;
 }
 
-.container__tabuleiro > img{
-    width: 547px;
-    position: fixed;
-    z-index: -1;
-
-}
 
 .container__tabuleiro__casa {
     position: absolute;
     z-index: 1;
 
+}
+
+.container__tabuleiro__casa > .separador__horizontal{
+    display: flex;
+    flex-direction: row;
+}
+
+.container__tabuleiro__casa > .separador__horizontal > .rua {
+    display: flex;
+    flex-direction: row;
+}
+
+.container__tabuleiro__casa > .separador__vestical{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.rua {
+    display: grid;
+}
+
+#rua01{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#rua04{
+    display: flex;
+    flex-direction: row-reverse;
+}
+   
+.casa{
+    width: 80px; /* Ajuste conforme necessário */
+    height: 100px; /* Ajuste conforme necessário */
+    background-color: #fff;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 5px;
+
+}
+
+.casa > h2{
+    font-weight: 100;
+    font-size: 15px;
 }
 
 .container__tabuleiro__cartas-sorte-reves {

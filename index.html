@@ -11,12 +11,22 @@
 <body>
     <div class="container">
         <div class="container__tabuleiro">
-            <img src="./src/dados/img/tabuleiro-pc.jpg" alt="">
+            
             <div class="container__tabuleiro__casa">
-                <div class="casa">
-                   <h3>posição</h3>
-                   <h2>nome</h2>
-                   <p>valor</p>
+                <div class="separador__horizontal">
+                    <div class="rua" id="rua02"></div>
+
+                </div>
+                <div class="separador__vestical">
+                    <div class="rua" id="rua01"></div>
+
+                    <div class="rua" id="rua03"></div>
+                </div>
+                <div class="separador__horizontal">
+                    <div class="rua" id="rua04"></div>
+
+                </div>
+                <!-- div casa sendo gerada pelo javascript -->
                 </div>
             </div>
             <div class="container__tabuleiro__cartas-sorte-reves"></div>
@@ -35,7 +45,6 @@
 
 
     <!-- JS -->
-    <script src="./src/engine/engine.js" defer></script>
-    <script src="./src/engine/dado.js"></script>
+    <script src="./src/script/engine.js" defer></script>
 </body>
 </html>

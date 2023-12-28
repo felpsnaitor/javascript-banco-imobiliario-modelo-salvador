@@ -8,9 +8,10 @@ const dado = [
 ]
 console.log(rolandoDados())
 
-async function rolandoDados(){
-    const numeroDoDado = Math.floor(Math.random() * (6 - 1 + 1)) + 1
+export async function rolandoDados(){
+    const numeroDoDado = Math.floor(Math.random() * dado.length)
     let dadoSelecionado = dado[numeroDoDado-1]
     
     return dadoSelecionado
 }
+

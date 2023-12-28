@@ -1,45 +1,45 @@
 const dadosDoJogo = {
     "lugares":[
-        {"id": 1,  "position": "casa inicio da partida"},
-        {"id": 2,  "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 3,  "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 4,  "position": "shopping", "nome":"Mata Escura", "valor":100000} ,
-        {"id": 5,  "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 6,  "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 7,  "position": "sorte ou reves"},
-        {"id": 8,  "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 9,  "position": "shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 10, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 11, "position": "cadeia"},
-        {"id": 12, "position": "sorte ou reves"},
-        {"id": 13, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 14, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 15, "position": "ganhe 200x"},
-        {"id": 16, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 17, "position": "shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 18, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 19, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 20, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 21, "position": "ferias"},
-        {"id": 22, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 23, "position": "shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 24, "position": "pague 200x"},
-        {"id": 25, "position": "sorte ou reves"},
-        {"id": 26, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 27, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 28, "position": "sorte ou reves"},
-        {"id": 29, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 30, "position": "shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 31, "position": "vá para a cadeia"},
-        {"id": 32, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 33, "position": "sorte ou reves"},
-        {"id": 34, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 35, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 36, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 37, "position": "shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 38, "position": "casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 39, "position": "sorte ou reves"},
-        {"id": 40, "position": "casa", "nome":"Mata Escura", "valor":100000}
+        {"id": 1,  "position":"casa inicio da partida", "nome":"inicio"},
+        {"id": 2,  "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 3,  "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 4,  "position":"shopping", "nome":"Mata Escura", "valor":100000} ,
+        {"id": 5,  "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 6,  "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 7,  "position":"sorte ou reves", "nome":"sorte ou reves"},
+        {"id": 8,  "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 9,  "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 10, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 11, "position":"cadeia", "nome":"cadeia"},
+        {"id": 12, "position":"sorte ou reves", "nome":"sorte ou reves"},
+        {"id": 13, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 14, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 15, "position":"ganhe 200x", "nome":"ganhe 200x"},
+        {"id": 16, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 17, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 18, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 19, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 20, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 21, "position":"ferias", "nome":"ferias"},
+        {"id": 22, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 23, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 24, "position":"pague 200x", "nome":"pague 200x"},
+        {"id": 25, "position":"sorte ou reves", "nome":"sorte ou reves"},
+        {"id": 26, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 27, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 28, "position":"sorte ou reves", "nome":"sorte ou reves"},
+        {"id": 29, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 30, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 31, "position":"vá para a cadeia", "nome":"vá para a cadeia"},
+        {"id": 32, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 33, "position":"sorte ou reves", "nome":"sorte ou reves"},
+        {"id": 34, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 35, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 36, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 37, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 38, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 39, "position":"sorte ou reves", "nome":"sorte ou reves"},
+        {"id": 40, "position":"casa", "nome":"Mata Escura", "valor":100000}
     ],
     "cartas":[
         {"tipo":[
@@ -335,8 +335,81 @@ const dadosDoJogo = {
 }
 
 const htmlAcesso = {
-    "casa": document.querySelector(".container__casa"),
-    "sr": document.querySelector(".container__tabuleiro__cartas-sorte-reves"),
-    "player": document.querySelector("container__tabuleiro__jogador"),
-    "dado": document.querySelector("container__dados")
+    "casa": `document.querySelector(".container__tabuleiro__casa")`,
+    "sr": `document.querySelector(".container__tabuleiro__cartas-sorte-reves")'`,
+    "player": `document.querySelector("container__tabuleiro__jogador")`,
+    "dado": `document.querySelector("container__dados")`
 }
+// DADOS
+const dado = [
+    {"id":1, "imgDado":"./src/dados/img/dado-1.png"},
+    {"id":2, "imgDado":"./src/dados/img/dado-2.png"},
+    {"id":3, "imgDado":"./src/dados/img/dado-3.png"},
+    {"id":4, "imgDado":"./src/dados/img/dado-4.png"},
+    {"id":5, "imgDado":"./src/dados/img/dado-5.png"},
+    {"id":6, "imgDado":"./src/dados/img/dado-6.png"}
+]
+// FUNÇÂO PARA ROLAR OS DADOS
+async function rolandoDados(){
+    const numeroDoDado = Math.floor(Math.random() * dado.length)
+    let dadoSelecionado = dado[numeroDoDado-1]
+    // const ladoDoDado = dadoSelecionado.id
+    // const imgLadoDoDado = dadoSelecionado.imgDado
+
+    
+    return dadoSelecionado
+}
+// CRIANDO OS LUGARES NO TABLEIRO
+function umaCasa(indentificador){
+    const casa = `<h2>${dadosDoJogo.lugares[indentificador].position}</h2>
+    <h2>${dadosDoJogo.lugares[indentificador].nome}</h2>
+        <p>${dadosDoJogo.lugares[indentificador].valor}</p>`
+    return casa
+}
+
+
+for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
+    
+    if(i < 10){
+        let lugarTabuleiro = document.createElement("div");
+        lugarTabuleiro.className = "casa"
+        lugarTabuleiro.innerHTML = umaCasa(i)
+        
+        document.querySelector("#rua01").appendChild(lugarTabuleiro)
+        
+        // a expressão || Usa-se para "ou"no ingles "or"
+        // a expressão && Usa-se para "e" no ingles "and"
+    }else if(i >= 10 && i < 20){
+        let lugarTabuleiro = document.createElement("div");
+        lugarTabuleiro.className = "casa"
+        lugarTabuleiro.innerHTML = umaCasa(i)
+        
+        document.querySelector("#rua02").appendChild(lugarTabuleiro)
+        
+    }else if(i >= 20 && i < 30){
+        let lugarTabuleiro = document.createElement("div");
+        lugarTabuleiro.className = "casa"
+        lugarTabuleiro.innerHTML = umaCasa(i)
+        
+        document.querySelector("#rua03").appendChild(lugarTabuleiro)
+        
+    }else if(i >= 30 && i < 40){
+        let lugarTabuleiro = document.createElement("div");
+        lugarTabuleiro.className = "casa"
+        lugarTabuleiro.innerHTML = umaCasa(i)
+        
+        document.querySelector("#rua04").appendChild(lugarTabuleiro)
+        
+    }
+    
+}
+
+
+
+function init(){
+
+
+
+}
+
+init()
