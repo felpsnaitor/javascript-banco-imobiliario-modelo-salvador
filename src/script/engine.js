@@ -364,15 +364,16 @@ function umaCasa(indentificador){
     const casa = `<h2>${dadosDoJogo.lugares[indentificador].position}</h2>
     <h2>${dadosDoJogo.lugares[indentificador].nome}</h2>
         <p>${dadosDoJogo.lugares[indentificador].valor}</p>`
+    
     return casa
 }
-
-
+// CRIANDO OS LUGARES NO TABLEIRO
 for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     
     if(i < 10){
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
+        lugarTabuleiro.id = `casa${i+1}`
         lugarTabuleiro.innerHTML = umaCasa(i)
         
         document.querySelector("#rua01").appendChild(lugarTabuleiro)
@@ -382,6 +383,7 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     }else if(i >= 10 && i < 20){
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
+        lugarTabuleiro.id = `casa${i+1}`
         lugarTabuleiro.innerHTML = umaCasa(i)
         
         document.querySelector("#rua02").appendChild(lugarTabuleiro)
@@ -389,6 +391,7 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     }else if(i >= 20 && i < 30){
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
+        lugarTabuleiro.id = `casa${i+1}`
         lugarTabuleiro.innerHTML = umaCasa(i)
         
         document.querySelector("#rua03").appendChild(lugarTabuleiro)
@@ -396,6 +399,7 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     }else if(i >= 30 && i < 40){
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
+        lugarTabuleiro.id = `casa${i+1}`
         lugarTabuleiro.innerHTML = umaCasa(i)
         
         document.querySelector("#rua04").appendChild(lugarTabuleiro)
@@ -403,6 +407,8 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     }
     
 }
+
+// colocando boneco para casa
 
 
 
