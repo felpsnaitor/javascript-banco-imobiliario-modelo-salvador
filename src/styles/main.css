@@ -43,18 +43,22 @@
 }
    
 .casa{
-    width: 80px; /* Ajuste conforme necessário */
-    height: 100px; /* Ajuste conforme necessário */
+    width: 160px; 
+    height: 120px; 
     background-color: #fff;
     border: 1px solid #000;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 5px;
+    padding: 3px;
+    position: relative;
+    z-index: -1;
 
 }
 
 .casa > h2{
-    font-weight: 100;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: medium;
 }
 
 .container__tabuleiro__cartas-sorte-reves {
@@ -62,9 +66,9 @@
     z-index: 2;
 }
 
-.container__tabuleiro__jogador > img{
+.jogador > img{
     width: 25px;
-    position: absolute;
+    position: relative;
     z-index: 3;
 }
 

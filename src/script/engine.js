@@ -335,7 +335,7 @@ const dadosDoJogo = {
 }
 
 const htmlAcesso = {
-    "casa": `document.querySelector(".container__tabuleiro__casa")`,
+    "casa": `document.querySelector("#casa10")`,
     "sr": `document.querySelector(".container__tabuleiro__cartas-sorte-reves")'`,
     "player": `document.querySelector("container__tabuleiro__jogador")`,
     "dado": `document.querySelector("container__dados")`
@@ -353,16 +353,14 @@ const dado = [
 async function rolandoDados(){
     const numeroDoDado = Math.floor(Math.random() * dado.length)
     let dadoSelecionado = dado[numeroDoDado-1]
-    // const ladoDoDado = dadoSelecionado.id
-    // const imgLadoDoDado = dadoSelecionado.imgDado
+    const ladoDoDado = [dadoSelecionado.id, dadoSelecionado.imgDado] 
 
     
-    return dadoSelecionado
+    return ladoDoDado
 }
 // CRIANDO OS LUGARES NO TABLEIRO
 function umaCasa(indentificador){
-    const casa = `<h2>${dadosDoJogo.lugares[indentificador].position}</h2>
-    <h2>${dadosDoJogo.lugares[indentificador].nome}</h2>
+    const casa = `<h2>${dadosDoJogo.lugares[indentificador].nome}</h2>
         <p>${dadosDoJogo.lugares[indentificador].valor}</p>`
     
     return casa
@@ -409,8 +407,18 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
 }
 
 // colocando boneco para casa
+async function jogadorNaCasa(indentificador){
+    const player = document.createElement("div")
+    player.className = "jogador"
+    player.innerHTML = `<img src="./src/dados/img/boneco-gojo-satoru.jpg" alt="">`
+    
+    document.querySelector(`#casa${indentificador}`).appendChild(player)
+
+}
 
 
+console.log(rolandoDados())
+jogadorNaCasa(25)
 
 function init(){
 
