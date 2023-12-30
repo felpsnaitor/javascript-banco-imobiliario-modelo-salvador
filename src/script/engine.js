@@ -352,12 +352,12 @@ const dado = [
 
 // variavel padrão
 let playersPassos = [
-    {"id":1, "player01":0},
-    {"id":2, "player02":0},
-    {"id":3, "player03":0},
-    {"id":4, "player04":0},
-    {"id":5, "player05":0},
-    {"id":6, "player06":0}
+    {"id":1, "player":0},
+    {"id":2, "player":0},
+    {"id":3, "player":0},
+    {"id":4, "player":0},
+    {"id":5, "player":0},
+    {"id":6, "player":0}
 ]
 
 let valorDado = {
@@ -391,7 +391,7 @@ function rolandoDado(){
     
     let somaDosDados = 0
     somaDosDados = valorDado.dado01 + valorDado.dado02
-    console.log(somaDosDados)
+    
     
     return somaDosDados
        
@@ -453,27 +453,31 @@ function jogadorNaCasa(indentificador){
     playerHtml.innerHTML = `<img src="./src/dados/img/boneco-luffy.png" alt="">`
     
     
-    if(indentificador === 0){
-        document.querySelector(`#casa1`).appendChild(playerHtml)
-        
-    }else{
-        document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
 
-    }
+    
+    
+    document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
+    
     
 }
 
-
+// quando rolar os dados pega o valor de cada um e retorna a soma dos 2
 document.querySelector(`#btn-dado`).addEventListener("click", () => {
+    // removendo jogador da casa anterior
+    document.querySelector(".jogador").remove()
+    
+
+    // pegado valor dos dados
     rolandoDado()
-    console.log(valorDado)
+   
     // Contando passos do player
     function contadorPassos(){
         let passos = valorDado.dado01 + valorDado.dado02
-        console.log(passos)
+        playersPassos[0].player += passos
         return passos
     }
-    
+    console.log(playersPassos[0].player)
+    // faz com que o personagem pule as casas da soma dos dados
     jogadorNaCasa(contadorPassos())
 
     
@@ -483,7 +487,7 @@ document.querySelector(`#btn-dado`).addEventListener("click", () => {
 
 
 function init(){
-    
+    jogadorNaCasa(1)
 }
 
 init()
