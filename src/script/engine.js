@@ -489,21 +489,24 @@ document.querySelector(`#btn-dado`).addEventListener("click", () => {
 
 const casasSorteouReves = [7, 12, 25, 28, 33, 39]
 function pegandoSorteOuReves(){
-    if(casasSorteouReves.includes(playersPassos[0].player)){
-        console.log(playersPassos[0].player)
-        
+    const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
+
+    // if(casasSorteouReves.includes(playersPassos[0].player)){
         let casaSR = document.createElement("div")
         casaSR.className = "sorte-ou-reves"
-        casaSR.innerHTML = `<h2>${() => {
-
-        }}</h2>
-        
+        casaSR.innerHTML = `
         <button id="btn-sorteOuReves">
         <img id="btn-sorteOuReves" src="./src/dados/img/sorte-reves.png" alt="" srcset="">
         </button>`
 
-        document.querySelector(".")
-    }
+        document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(casaSR)
+
+        document.querySelector(`#btn-sorteOuReves`).addEventListener("click", () => {
+
+        })
+
+       
+    // }
 }
 
 
