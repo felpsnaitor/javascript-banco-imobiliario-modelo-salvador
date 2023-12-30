@@ -84,7 +84,7 @@
     z-index: 2;
 
 }
-
+/* Girando carta do SOUR */
 #btn-sorteOuReves {
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
@@ -92,9 +92,4 @@
 .girando-card {
     transform: rotate3d(1, 1, 1, 360deg);
 }
-/* 
-#btn-sorteOuReves:active {
-    transform: rotate3d(1, 1, 1, 45deg);
-} */
-
 

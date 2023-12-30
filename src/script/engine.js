@@ -504,11 +504,13 @@ function pegandoSorteOuReves(){
 
         document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(casaSR)
 
-        // Girando Carta do SouR quando clicar
         // Mostrando qual o conteudo da carta
         document.querySelector(`#btn-sorteOuReves`).addEventListener("click", () => {
-            console.log("girando")
-            document.getElementById("btn-sorteOuReves").classList.toggle('girando-card');
+            
+            // Girando Carta do SouR quando clicar
+            document.getElementById("btn-sorteOuReves").
+            classList.toggle('girando-card');
+        
             const numeroSortido  = Math.floor(Math.random() * (6 - 0))
             console.log(numeroSortido)
             let casaSR = document.createElement("div")
