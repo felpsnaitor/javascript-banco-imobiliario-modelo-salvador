@@ -483,26 +483,34 @@ document.querySelector(`#btn-dado`).addEventListener("click", () => {
     // faz com que o personagem pule as casas da soma dos dados
     jogadorNaCasa(passosAtualizados())
     pegandoSorteOuReves()
-
+    
 })
 
-
+// salvando casa do Sorte ou Reves
 const casasSorteouReves = [7, 12, 25, 28, 33, 39]
+// configurando Sorte ou Revez para aparecer quando o jogador estiver na casa
 function pegandoSorteOuReves(){
+    // pegando a carta do sote ou reves
     const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
 
+    // colocando a carta SouR no tabuleiro
     if(casasSorteouReves.includes(playersPassos[0].player)){
         let casaSR = document.createElement("div")
         casaSR.className = "sorte-ou-reves"
         casaSR.innerHTML = `
-        <button id="btn-sorteOuReves">
-        <img id="btn-sorteOuReves" src="./src/dados/img/sorte-reves.png" alt="" srcset="">
+        <button class="girando-card" id="btn-sorteOuReves">
+        <img id="img-sorteOuReves" src="./src/dados/img/sorte-reves.png" alt="" srcset="">
         </button>`
 
         document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(casaSR)
 
+        // Girando Carta do SouR quando clicar
+        // Mostrando qual o conteudo da carta
         document.querySelector(`#btn-sorteOuReves`).addEventListener("click", () => {
+            console.log("girando")
+            document.getElementById("btn-sorteOuReves").classList.toggle('girando-card');
             const numeroSortido  = Math.floor(Math.random() * (6 - 0))
+            console.log(numeroSortido)
             let casaSR = document.createElement("div")
             casaSR.className = "carta-sorte-ou-reves"
             casaSR.innerHTML = `<h2>${sorteReves[numeroSortido].nome}</h2>
@@ -514,7 +522,7 @@ function pegandoSorteOuReves(){
         })
 
        
-    }else {
+    }else if(document.querySelector(".sorte-ou-reves")) {
         document.querySelector(".sorte-ou-reves").remove()
     }
 }

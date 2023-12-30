@@ -77,8 +77,24 @@
     border-radius: 18px;
 }
 
-.sorte-ou-reves{
+.container__tabuleiro__cartas-sorte-reves > .sorte-ou-reves{
     width: 100px;
     height: 150px;
+    position: absolute;
+    z-index: 2;
 
 }
+
+#btn-sorteOuReves {
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+.girando-card {
+    transform: rotate3d(1, 1, 1, 360deg);
+}
+/* 
+#btn-sorteOuReves:active {
+    transform: rotate3d(1, 1, 1, 45deg);
+} */
+
+
