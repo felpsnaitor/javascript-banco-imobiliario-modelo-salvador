@@ -491,7 +491,7 @@ const casasSorteouReves = [7, 12, 25, 28, 33, 39]
 function pegandoSorteOuReves(){
     const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
 
-    // if(casasSorteouReves.includes(playersPassos[0].player)){
+    if(casasSorteouReves.includes(playersPassos[0].player)){
         let casaSR = document.createElement("div")
         casaSR.className = "sorte-ou-reves"
         casaSR.innerHTML = `
@@ -502,11 +502,21 @@ function pegandoSorteOuReves(){
         document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(casaSR)
 
         document.querySelector(`#btn-sorteOuReves`).addEventListener("click", () => {
+            const numeroSortido  = Math.floor(Math.random() * (6 - 0))
+            let casaSR = document.createElement("div")
+            casaSR.className = "carta-sorte-ou-reves"
+            casaSR.innerHTML = `<h2>${sorteReves[numeroSortido].nome}</h2>
+            <p>${sorteReves[numeroSortido].texto}</p>`
+    
+            document.querySelector(".sorte-ou-reves").appendChild(casaSR)
 
+            // aqui vem a ação
         })
 
        
-    // }
+    }else {
+        document.querySelector(".sorte-ou-reves").remove()
+    }
 }
 
 
