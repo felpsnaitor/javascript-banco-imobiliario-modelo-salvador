@@ -470,15 +470,30 @@ document.querySelector(`#btn-dado`).addEventListener("click", () => {
     // pegado valor dos dados
     rolandoDado()
    
-    // Contando passos do player
-    function contadorPassos(){
-        let passos = valorDado.dado01 + valorDado.dado02
-        playersPassos[0].player += passos
-        return passos
+    
+    // atualizando passos do jogador
+    function passosAtualizados(){
+        // Contando passos do player
+        function contadorPassos(){
+            let passos = valorDado.dado01 + valorDado.dado02
+            return passos
+        }
+        
+        playersPassos[0].player += contadorPassos()
+
+        if(playersPassos[0].player > 40){
+            playersPassos[0].player -= 40
+           
+        }
+        
+        return playersPassos[0].player 
+
     }
-    console.log(playersPassos[0].player)
+
+
+
     // faz com que o personagem pule as casas da soma dos dados
-    jogadorNaCasa(contadorPassos())
+    jogadorNaCasa(passosAtualizados())
 
     
 })
