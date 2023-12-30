@@ -2,44 +2,44 @@ const dadosDoJogo = {
     "lugares":[
         {"id": 1,  "position":"casa inicio da partida", "nome":"inicio"},
         {"id": 2,  "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 3,  "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 4,  "position":"shopping", "nome":"Mata Escura", "valor":100000} ,
-        {"id": 5,  "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 6,  "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 3,  "position":"casa", "nome":"São Caetano", "valor":100000},
+        {"id": 4,  "position":"shopping", "nome":"Shopping da Bahia", "valor":100000} ,
+        {"id": 5,  "position":"casa", "nome":"Bom Jua", "valor":100000},
+        {"id": 6,  "position":"casa", "nome":"Bairro da Paz", "valor":100000},
         {"id": 7,  "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 8,  "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 9,  "position":"shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 10, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 8,  "position":"casa", "nome":"Águas Claras", "valor":100000},
+        {"id": 9,  "position":"shopping" , "nome":"Salvador Shopping", "valor":100000},
+        {"id": 10, "position":"casa", "nome":"Curuzu", "valor":100000},
         {"id": 11, "position":"cadeia", "nome":"cadeia"},
         {"id": 12, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 13, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 14, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 13, "position":"casa", "nome":"Cabula", "valor":100000},
+        {"id": 14, "position":"casa", "nome":"Liberdade", "valor":100000},
         {"id": 15, "position":"ganhe 200x", "nome":"ganhe 200x"},
-        {"id": 16, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 17, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 18, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 19, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 20, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 16, "position":"casa", "nome":"Nordeste de Amaralina", "valor":100000},
+        {"id": 17, "position":"shopping" , "nome":"Shopping Bela Vista", "valor":100000},
+        {"id": 18, "position":"casa", "nome":"Ondina", "valor":100000},
+        {"id": 19, "position":"casa", "nome":"Barra", "valor":100000},
+        {"id": 20, "position":"casa", "nome":"Pituba", "valor":100000},
         {"id": 21, "position":"ferias", "nome":"ferias"},
-        {"id": 22, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 23, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 22, "position":"casa", "nome":"Pelourinho", "valor":100000},
+        {"id": 23, "position":"shopping" , "nome":"Shopping Paralela", "valor":100000},
         {"id": 24, "position":"pague 200x", "nome":"pague 200x"},
         {"id": 25, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 26, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 27, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 26, "position":"casa", "nome":"Imbui", "valor":100000},
+        {"id": 27, "position":"casa", "nome":"Tororó", "valor":100000},
         {"id": 28, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 29, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 30, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
+        {"id": 29, "position":"casa", "nome":"Nazaré", "valor":100000},
+        {"id": 30, "position":"shopping" , "nome":"Shopping Center Lapa", "valor":100000},
         {"id": 31, "position":"vá para a cadeia", "nome":"vá para a cadeia"},
-        {"id": 32, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 32, "position":"casa", "nome":"Paripe", "valor":100000},
         {"id": 33, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 34, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 35, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 36, "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 37, "position":"shopping" , "nome":"Mata Escura", "valor":100000},
-        {"id": 38, "position":"casa", "nome":"Mata Escura", "valor":100000},
+        {"id": 34, "position":"casa", "nome":"Ribeira", "valor":100000},
+        {"id": 35, "position":"casa", "nome":"Itapuã", "valor":100000},
+        {"id": 36, "position":"casa", "nome":"Rio Vermelho", "valor":100000},
+        {"id": 37, "position":"shopping" , "nome":"Shopping Barra", "valor":100000},
+        {"id": 38, "position":"casa", "nome":"Horto Florestal", "valor":100000},
         {"id": 39, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 40, "position":"casa", "nome":"Mata Escura", "valor":100000}
+        {"id": 40, "position":"casa", "nome":"Paralela", "valor":100000}
     ],
     "cartas":[
         {"tipo":[
@@ -122,7 +122,7 @@ const dadosDoJogo = {
                 "compra de predio":35000,
                 "hipoteca":35000},
                 {"id":8,
-                "nome":"Comércio",
+                "nome":"Liberdade",
                 "aluguel":500,
                 "aluguel casa 1":800,
                 "alugue casa 2":1000,
@@ -177,7 +177,7 @@ const dadosDoJogo = {
                 "compra de predio":35000,
                 "hipoteca":35000},
                 {"id":13,
-                "nome":"Praia do Flamengo",
+                "nome":"Pelourinho",
                 "aluguel":500,
                 "aluguel casa 1":800,
                 "alugue casa 2":1000,
@@ -399,9 +399,8 @@ function rolandoDado(){
 
 // CRIANDO OS LUGARES NO TABLEIRO
 function umaCasa(indentificador){
-    const casa = `<h2>${dadosDoJogo.lugares[indentificador].nome}</h2>
-    <p>${dadosDoJogo.lugares[indentificador].valor}</p>`
-    
+    const casa = `<h2>${dadosDoJogo.lugares[indentificador].nome}</h2>`
+
     return casa
 }
 // CRIANDO OS LUGARES NO TABLEIRO
@@ -461,7 +460,7 @@ function jogadorNaCasa(indentificador){
     
 }
 
-// quando rolar os dados pega o valor de cada um e retorna a soma dos 2
+// Fazendo o Jogador andar quando rolar os dados
 document.querySelector(`#btn-dado`).addEventListener("click", () => {
     // removendo jogador da casa anterior
     document.querySelector(".jogador").remove()
