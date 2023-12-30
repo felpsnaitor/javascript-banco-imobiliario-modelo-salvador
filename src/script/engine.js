@@ -312,16 +312,16 @@ const dadosDoJogo = {
                 "nome":"Shopping Barra",
                 "gasto":500,
                 "hipoteca":35000}
+            ]},
+            {"sorte ou reves":[
+                {"id":1, "nome":"sorte", "texto":"você ganhou na raspadiha!", "ação":"receba","valor":200.00},
+                {"id":2, "nome":"reves", "texto":"Seu carro quebrou, pague o mecânico", "ação":"pague","valor":7000.00},
+                {"id":3, "nome":"sorte", "texto":"Achou uma mala na rua sem indentificação cheia de dinheiro", "ação":"receba","valor":50000.00},
+                {"id":4, "nome":"reves", "texto":"Você tava andando com os meninos da boca quando a polica chegou", "ação":"vá para a cadeia","valor":0},
+                {"id":5, "nome":"sorte", "texto":"Você ajudou o melhor advogado criminalista da cidade Gabriel Souza e ele te deve um favor!", "ação":"habeas corpus","valor":0}
             ]}
             ]
         }
-    ],
-    "sorte ou reves":[
-        {"id":1, "nome":"sorte", "texto":"você ganhou na raspadiha!", "ação":"receba","valor":200.00},
-        {"id":2, "nome":"reves", "texto":"Seu carro quebrou, pague o mecânico", "ação":"pague","valor":7000.00},
-        {"id":3, "nome":"sorte", "texto":"Achou uma mala na rua sem indentificação cheia de dinheiro", "ação":"receba","valor":50000.00},
-        {"id":4, "nome":"reves", "texto":"Você tava andando com os meninos da boca quando a polica chegou", "ação":"vá para a cadeia","valor":0},
-        {"id":5, "nome":"sorte", "texto":"Você ajudou o melhor advogado criminalista da cidade Gabriel Souza e ele te deve um favor!", "ação":"habeas corpus","valor":0}
     ],
     "bonecos":[
         {"id":1, "nome":"Gon", "src":"./src/dados/img/boneco-gon.png"},
@@ -334,12 +334,6 @@ const dadosDoJogo = {
 
 }
 
-const htmlAcesso = {
-    "casa": `document.querySelector("#casa10")`,
-    "sr": `document.querySelector(".container__tabuleiro__cartas-sorte-reves")'`,
-    "player": `document.querySelector("container__tabuleiro__jogador")`,
-    "dado": `document.querySelector("container__dados")`
-}
 // DADOS
 const dado = [
     {"id":1, "imgDado":"./src/dados/img/dado-1.png"},
@@ -349,6 +343,12 @@ const dado = [
     {"id":5, "imgDado":"./src/dados/img/dado-5.png"},
     {"id":6, "imgDado":"./src/dados/img/dado-6.png"}
 ]
+
+// abreveiando metodo .ramdown
+function sortindoNumeros(max, min){
+    const  valor = () => ~~(Math.ramdon() * max - min)
+    return valor
+}
 
 // variavel padrão
 let playersPassos = [
@@ -365,11 +365,9 @@ let valorDado = {
     "dado02":0
 }
 
-
-
 // FUNÇÂO PARA ROLAR O DADO
 function numeroDoDado(){
-    const numeroDoDado = Math.floor(Math.random() * (6 - 0))
+    const numeroDoDado  = Math.floor(Math.random() * (6 - 0))
     let dadoSelecionado = dado[numeroDoDado]
    
     return dadoSelecionado   
@@ -451,12 +449,7 @@ function jogadorNaCasa(indentificador){
     playerHtml.className = "jogador"
     playerHtml.innerHTML = `<img src="./src/dados/img/boneco-luffy.png" alt="">`
     
-    
-
-    
-    
     document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
-    
     
 }
 
@@ -465,11 +458,9 @@ document.querySelector(`#btn-dado`).addEventListener("click", () => {
     // removendo jogador da casa anterior
     document.querySelector(".jogador").remove()
     
-
     // pegado valor dos dados
     rolandoDado()
    
-    
     // atualizando passos do jogador
     function passosAtualizados(){
         // Contando passos do player
@@ -489,19 +480,37 @@ document.querySelector(`#btn-dado`).addEventListener("click", () => {
 
     }
 
-
-
     // faz com que o personagem pule as casas da soma dos dados
     jogadorNaCasa(passosAtualizados())
+    pegandoSorteOuReves()
 
-    
 })
 
+
+const casasSorteouReves = [7, 12, 25, 28, 33, 39]
+function pegandoSorteOuReves(){
+    if(casasSorteouReves.includes(playersPassos[0].player)){
+        console.log(playersPassos[0].player)
+        
+        let casaSR = document.createElement("div")
+        casaSR.className = "sorte-ou-reves"
+        casaSR.innerHTML = `<h2>${() => {
+
+        }}</h2>
+        
+        <button id="btn-sorteOuReves">
+        <img id="btn-sorteOuReves" src="./src/dados/img/sorte-reves.png" alt="" srcset="">
+        </button>`
+
+        document.querySelector(".")
+    }
+}
 
 
 
 function init(){
     jogadorNaCasa(1)
+
 }
 
 init()
