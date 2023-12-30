@@ -349,19 +349,58 @@ const dado = [
     {"id":5, "imgDado":"./src/dados/img/dado-5.png"},
     {"id":6, "imgDado":"./src/dados/img/dado-6.png"}
 ]
-// FUNÇÂO PARA ROLAR OS DADOS
-async function rolandoDados(){
-    const numeroDoDado = Math.floor(Math.random() * dado.length)
-    let dadoSelecionado = dado[numeroDoDado-1]
-    const ladoDoDado = [dadoSelecionado.id, dadoSelecionado.imgDado] 
 
-    
-    return ladoDoDado
+// variavel padrão
+let playersPassos = [
+    {"id":1, "player01":0},
+    {"id":2, "player02":0},
+    {"id":3, "player03":0},
+    {"id":4, "player04":0},
+    {"id":5, "player05":0},
+    {"id":6, "player06":0}
+]
+
+let valorDado = {
+    "dado01":0,
+    "dado02":0
 }
+
+
+
+// FUNÇÂO PARA ROLAR O DADO
+function numeroDoDado(){
+    const numeroDoDado = Math.floor(Math.random() * (6 - 0))
+    let dadoSelecionado = dado[numeroDoDado]
+   
+    return dadoSelecionado   
+}
+
+function rolandoDado(){
+    
+    // pegando valores do dado 1
+    let dadoNum = numeroDoDado()
+    let imgDoDado = dadoNum.imgDado
+    document.getElementById(`img-dado01`).src = imgDoDado
+    valorDado.dado01 = dadoNum.id
+    
+    // Pegando valores do dado 2
+    dadoNum = numeroDoDado()
+    imgDoDado = dadoNum.imgDado
+    document.getElementById(`img-dado02`).src = imgDoDado
+    valorDado.dado02 = dadoNum.id
+    
+    let somaDosDados = 0
+    somaDosDados = valorDado.dado01 + valorDado.dado02
+    console.log(somaDosDados)
+    
+    return somaDosDados
+       
+}
+
 // CRIANDO OS LUGARES NO TABLEIRO
 function umaCasa(indentificador){
     const casa = `<h2>${dadosDoJogo.lugares[indentificador].nome}</h2>
-        <p>${dadosDoJogo.lugares[indentificador].valor}</p>`
+    <p>${dadosDoJogo.lugares[indentificador].valor}</p>`
     
     return casa
 }
@@ -407,23 +446,44 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
 }
 
 // colocando boneco para casa
-async function jogadorNaCasa(indentificador){
-    const player = document.createElement("div")
-    player.className = "jogador"
-    player.innerHTML = `<img src="./src/dados/img/boneco-gojo-satoru.jpg" alt="">`
+function jogadorNaCasa(indentificador){
     
-    document.querySelector(`#casa${indentificador}`).appendChild(player)
+    const playerHtml = document.createElement("div")
+    playerHtml.className = "jogador"
+    playerHtml.innerHTML = `<img src="./src/dados/img/boneco-luffy.png" alt="">`
+    
+    
+    if(indentificador === 0){
+        document.querySelector(`#casa1`).appendChild(playerHtml)
+        
+    }else{
+        document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
 
+    }
+    
 }
 
 
-console.log(rolandoDados())
-jogadorNaCasa(25)
+document.querySelector(`#btn-dado`).addEventListener("click", () => {
+    rolandoDado()
+    console.log(valorDado)
+    // Contando passos do player
+    function contadorPassos(){
+        let passos = valorDado.dado01 + valorDado.dado02
+        console.log(passos)
+        return passos
+    }
+    
+    jogadorNaCasa(contadorPassos())
+
+    
+})
+
+
+
 
 function init(){
-
-
-
+    
 }
 
 init()

@@ -8,10 +8,22 @@ const dado = [
 ]
 console.log(rolandoDados())
 
-export async function rolandoDados(){
-    const numeroDoDado = Math.floor(Math.random() * dado.length)
-    let dadoSelecionado = dado[numeroDoDado-1]
-    
-    return dadoSelecionado
+// FUNÇÂO PARA ROLAR OS DADOS
+function rolandoDados(){
+    const numeroDoDado = Math.floor(Math.random() * (6 - 0))
+    let dadoSelecionado = dado[numeroDoDado]
+   
+    return dadoSelecionado   
 }
 
+// Calculando dados dos 2 dados
+function somaDosDados(){
+    let somaDados = 0
+    let dado01 = rolandoDados().id
+    somaDados = dado01
+    let dado02 = rolandoDados().id
+    somaDados += dado02
+
+    return somaDados
+
+}
