@@ -351,13 +351,13 @@ function sortindoNumeros(max, min){
 }
 
 // variavel padrão
-let playersPassos = [
-    {"id":1, "player":0},
-    {"id":2, "player":0},
-    {"id":3, "player":0},
-    {"id":4, "player":0},
-    {"id":5, "player":0},
-    {"id":6, "player":0}
+let jogadores = [
+    {"id":1, "player":0, "status":"normal"},
+    {"id":2, "player":0, "status":"normal"},
+    {"id":3, "player":0, "status":"normal"},
+    {"id":4, "player":0, "status":"normal"},
+    {"id":5, "player":0, "status":"normal"},
+    {"id":6, "player":0, "status":"normal"}
 ]
 
 let valorDado = {
@@ -452,39 +452,45 @@ function jogadorNaCasa(indentificador){
     document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
     
 }
+// removendo jogador da casa anterior
+function removendoImgAntiga(){
+    document.querySelector(".jogador").remove()
+}
 
 // Fazendo o Jogador andar quando rolar os dados
-document.querySelector(`#btn-dado`).addEventListener("click", () => {
-    // removendo jogador da casa anterior
-    document.querySelector(".jogador").remove()
+// function jogandoDados(){
+    document.querySelector(`#btn-dado`).addEventListener("click", () => {
+        removendoImgAntiga()
+        // pegado valor dos dados
+        rolandoDado()
     
-    // pegado valor dos dados
-    rolandoDado()
-   
-    // atualizando passos do jogador
-    function passosAtualizados(){
-        // Contando passos do player
-        function contadorPassos(){
-            let passos = valorDado.dado01 + valorDado.dado02
-            return passos
+        // atualizando passos do jogador
+        function passosAtualizados(){
+            // Contando passos do player
+            function contadorPassos(){
+                let passos = valorDado.dado01 + valorDado.dado02
+                return passos
+            }
+            
+            jogadores[0].player += contadorPassos()
+
+            if(jogadores[0].player > 40){
+                jogadores[0].player -= 40
+            
+            }
+            
+            return jogadores[0].player 
+
         }
+
+        // faz com que o personagem pule as casas da soma dos dados
+        jogadorNaCasa(passosAtualizados())
+        pegandoSorteOuReves()
+        foiPreso()
+        pegandoOLadrao()
         
-        playersPassos[0].player += contadorPassos()
-
-        if(playersPassos[0].player > 40){
-            playersPassos[0].player -= 40
-           
-        }
-        
-        return playersPassos[0].player 
-
-    }
-
-    // faz com que o personagem pule as casas da soma dos dados
-    jogadorNaCasa(passosAtualizados())
-    pegandoSorteOuReves()
-    
-})
+    })
+// }
 
 // salvando casa do Sorte ou Reves
 const casasSorteouReves = [7, 12, 25, 28, 33, 39]
@@ -494,7 +500,7 @@ function pegandoSorteOuReves(){
     const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
 
     // colocando a carta SouR no tabuleiro
-    if(casasSorteouReves.includes(playersPassos[0].player)){
+    if(casasSorteouReves.includes(jogadores[0].player)){
         let casaSR = document.createElement("div")
         casaSR.className = "sorte-ou-reves"
         casaSR.innerHTML = `
@@ -519,19 +525,68 @@ function pegandoSorteOuReves(){
             <p>${sorteReves[numeroSortido].texto}</p>`
     
             document.querySelector(".sorte-ou-reves").appendChild(casaSR)
-
-            // aqui vem a ação
+            
+            // aqui vem a ação do sorte ou reves
         })
-
-       
+        
+        
     }else if(document.querySelector(".sorte-ou-reves")) {
         document.querySelector(".sorte-ou-reves").remove()
     }
 }
 
+let ladrão = 0
+function pegandoOLadrao(){console.log(jogadores[0].status)
+    if(valorDado.dado01 == valorDado.dado02){
+    ladrão ++   
+    }else if(ladrão === 3){
+        removendoImgAntiga()
+        jogadorNaCasa(11)
+        jogadores[0].status = "preso"
+        ladrão = 0
+    }
+        console.log(ladrão)
 
+}
+// Chave de trava da função caso esteja na cadeia
+const preso = false
+// função para ferias
+function tirandoFerias(){
+    if(jogadores[0].player === 21){
+        jogadores[0].status = "ferias"
+        // Fazendo o jogador ir para a cadeia caso caia em vá para a cadeia
+    }
+}
+
+// função para Prisao
+function foiPreso(){
+
+
+    // Colocando o Status de Preso caso esteja na cadeia
+    if(jogadores[0].player === 11){
+        jogadores[0].status = "preso"
+        // Fazendo o jogador ir para a cadeia caso caia em vá para a cadeia
+    } else if(jogadores[0].player === 31){
+        console.log(jogadores[0].player)
+        removendoImgAntiga()
+        jogadorNaCasa(11)
+        jogadores[0].status = "preso"
+    }else {jogadores[0].status = "normal"}
+
+    // // Fazendo o Jogador ficar preso quando esta na cadeia
+    // if(jogadores[0].status === "preso"){
+    //     cadeia = true
+    // // Tirando o jogador da cadeia
+    // }else if (jogadores[0].status === "normal") {
+    //     cadeia = false
+    //     jogandoDados()
+
+    // }
+    
+}
 
 function init(){
+    // jogandoDados()
     jogadorNaCasa(1)
 
 }
