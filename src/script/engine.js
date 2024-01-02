@@ -484,10 +484,13 @@ function removendoImgAntiga(){
         }
 
         // faz com que o personagem pule as casas da soma dos dados
+        console.log(jogadores[0].status)
         jogadorNaCasa(passosAtualizados())
         pegandoOLadrao()
         foiPreso()
+        tirandoFerias()
         pegandoSorteOuReves()
+        console.log(jogadores[0].status)
         
     })
 // }
@@ -530,19 +533,20 @@ function pegandoSorteOuReves(){
         })
         
         
+        
     }else if(document.querySelector(".sorte-ou-reves")) {
         document.querySelector(".sorte-ou-reves").remove()
     }
 }
 
 let ladrão = 1
-    function pegandoOLadrao(){console.log(jogadores[0].status)
+    function pegandoOLadrao(){
     if(valorDado.dado01 == valorDado.dado02){
         ladrão ++   
-        console.log(ladrão)
+        
     } else {ladrão = 0}
     
-    console.log(ladrão)
+   
     
     if(ladrão === 3 && valorDado.dado01 == valorDado.dado02){
         removendoImgAntiga()
@@ -575,6 +579,7 @@ function foiPreso(){
         console.log(jogadores[0].player)
         removendoImgAntiga()
         jogadorNaCasa(11)
+        jogadores[0].player = 11
         jogadores[0].status = "preso"
     }else {jogadores[0].status = "normal"}
 
