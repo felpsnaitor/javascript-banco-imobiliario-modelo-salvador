@@ -485,9 +485,9 @@ function removendoImgAntiga(){
 
         // faz com que o personagem pule as casas da soma dos dados
         jogadorNaCasa(passosAtualizados())
-        pegandoSorteOuReves()
-        foiPreso()
         pegandoOLadrao()
+        foiPreso()
+        pegandoSorteOuReves()
         
     })
 // }
@@ -535,17 +535,22 @@ function pegandoSorteOuReves(){
     }
 }
 
-let ladrão = 0
-function pegandoOLadrao(){console.log(jogadores[0].status)
+let ladrão = 1
+    function pegandoOLadrao(){console.log(jogadores[0].status)
     if(valorDado.dado01 == valorDado.dado02){
-    ladrão ++   
-    }else if(ladrão === 3){
+        ladrão ++   
+        console.log(ladrão)
+    } else {ladrão = 0}
+    
+    console.log(ladrão)
+    
+    if(ladrão === 3 && valorDado.dado01 == valorDado.dado02){
         removendoImgAntiga()
         jogadorNaCasa(11)
         jogadores[0].status = "preso"
         ladrão = 0
     }
-        console.log(ladrão)
+        console.log(jogadores[0].player)
 
 }
 // Chave de trava da função caso esteja na cadeia
