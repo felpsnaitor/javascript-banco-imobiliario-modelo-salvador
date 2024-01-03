@@ -343,15 +343,8 @@ const dado = [
     {"id":5, "imgDado":"./src/dados/img/dado-5.png"},
     {"id":6, "imgDado":"./src/dados/img/dado-6.png"}
 ]
-
-// abreveiando metodo .ramdown
-function sortindoNumeros(max, min){
-    const  valor = () => ~~(Math.ramdon() * max - min)
-    return valor
-}
-
 // variavel padrão
-let jogadores = [
+const jogadores = [
     {"id":1, "player":0, "status":"normal"},
     {"id":2, "player":0, "status":"normal"},
     {"id":3, "player":0, "status":"normal"},
@@ -360,9 +353,18 @@ let jogadores = [
     {"id":6, "player":0, "status":"normal"}
 ]
 
-let valorDado = {
+const valorDado = {
     "dado01":0,
     "dado02":0
+}
+
+// Chave de trava da função caso esteja na cadeia
+const preso = false
+
+// abreveiando metodo .ramdown
+function sortindoNumeros(max, min){
+    const  valor = () => ~~(Math.ramdon() * max - min)
+    return valor
 }
 
 // FUNÇÂO PARA ROLAR O DADO
@@ -396,19 +398,14 @@ function rolandoDado(){
 }
 
 // CRIANDO OS LUGARES NO TABLEIRO
-function umaCasa(indentificador){
-    const casa = `<h2>${dadosDoJogo.lugares[indentificador].nome}</h2>`
-
-    return casa
-}
-// CRIANDO OS LUGARES NO TABLEIRO
 for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     
     if(i < 10){
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
         lugarTabuleiro.id = `casa${i+1}`
-        lugarTabuleiro.innerHTML = umaCasa(i)
+        lugarTabuleiro.innerHTML = `<h2>${dadosDoJogo.lugares[i].nome}</h2>`
+
         
         document.querySelector("#rua01").appendChild(lugarTabuleiro)
         
@@ -418,7 +415,8 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
         lugarTabuleiro.id = `casa${i+1}`
-        lugarTabuleiro.innerHTML = umaCasa(i)
+        lugarTabuleiro.innerHTML =`<h2>${dadosDoJogo.lugares[i].nome}</h2>`
+
         
         document.querySelector("#rua02").appendChild(lugarTabuleiro)
         
@@ -426,7 +424,8 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
         lugarTabuleiro.id = `casa${i+1}`
-        lugarTabuleiro.innerHTML = umaCasa(i)
+        lugarTabuleiro.innerHTML = `<h2>${dadosDoJogo.lugares[i].nome}</h2>`
+
         
         document.querySelector("#rua03").appendChild(lugarTabuleiro)
         
@@ -434,7 +433,8 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
         let lugarTabuleiro = document.createElement("div");
         lugarTabuleiro.className = "casa"
         lugarTabuleiro.id = `casa${i+1}`
-        lugarTabuleiro.innerHTML = umaCasa(i)
+        lugarTabuleiro.innerHTML = `<h2>${dadosDoJogo.lugares[i].nome}</h2>`
+
         
         document.querySelector("#rua04").appendChild(lugarTabuleiro)
         
@@ -557,8 +557,7 @@ let ladrão = 1
         console.log(jogadores[0].player)
 
 }
-// Chave de trava da função caso esteja na cadeia
-const preso = false
+
 // função para ferias
 function tirandoFerias(){
     if(jogadores[0].player === 21){
