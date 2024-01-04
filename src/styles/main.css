@@ -2,7 +2,9 @@
 
 .container{
     width: 800px;
+    
     margin: 20px;
+    display: flex;
 }
 
 .container__tabuleiro__casa > .separador__horizontal{
@@ -93,3 +95,57 @@
     transform: rotate3d(1, 1, 1, 360deg);
 }
 
+/* PAINEL A DIREITA*/
+.container__lado-direito {
+    display: grid;
+}
+/* Banco */
+.container__banco{
+    display: grid;
+    height: 240px;
+    gap: 30px;
+    margin: 20px;
+}
+
+.banco-posse {
+    display: flex;
+    gap: 30px;
+    width: 320px;
+}
+.caixa-de-itens-do-banco{
+    gap: 20px;
+}
+
+.cartoes-de-casa > img , .foto-da-casa > img{
+    width: 90px;
+
+}
+.caixa-de-itens-do-banco {
+    display: flex;
+}
+
+.banco-casa {
+    width: 160px;
+}
+
+/* Jogador */
+.container__posses-do-jogador {
+    display: grid;
+    /* grid-template-columns faz 3 colunas com largura igual */
+    grid-template-columns: repeat(3, 1fr); 
+    /* grid-template-rows faz 2 linhas com altura igual */
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 10px; 
+    width: 480px;
+    height: 160px;
+  }
+
+.jogador-status{
+    width: 100%; 
+    height: 100%; 
+    /* Inclui borda na largura e altura total */
+    box-sizing: border-box; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

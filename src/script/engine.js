@@ -602,9 +602,9 @@ function foiPreso(){
                 // Condissão para sair da prinsao
                 if(jogadores[0].status === "preso" && diaDePrisao === 3){
                    liberdade()
-                // Conndissão para sair das ferias
                 } else if (jogadores[0].status === "preso" && manha == 1){
                     liberdade()
+                    // Conndissão para sair das ferias
                  }else if (jogadores[0].status === "ferias" && diaDePrisao === 2 ){
                     liberdade()
                 }

@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <div class="container__tabuleiro">
+            <!-- div casa sendo gerada pelo javascript -->
             
             <div class="container__tabuleiro__casa">
                 <div class="separador__horizontal">
@@ -20,10 +21,9 @@
                 <div class="separador__vestical">
                     <div class="rua" id="rua01"></div>
 
-                    <div class="container__tabuleiro__cartas-sorte-reves">
-                       
-                    </div>
-                    
+                    <!-- div Sorte ou Reves sendo gerada pelo javascript -->
+                    <div class="container__tabuleiro__cartas-sorte-reves"></div>
+                    <!-- Dados sendo gerada pelo javascript -->
                     <div class="container__dados">
                         <button id="btn-dado">rolar dado</button>
                         <div class="dado" id="dado01">
@@ -40,16 +40,76 @@
                     <div class="rua" id="rua04"></div>
 
                 </div>
-                <!-- div casa sendo gerada pelo javascript -->
-                </div>
             </div>
         </div>
+        <div class="container__lado-direito">
+            <div class="container__banco">
+                <div class="banco-posse">
+                    <h1>Banco</h1>
+                    <h1 #valor-do-banco>R$100.000</h1>
+                </div>
+                <div class="caixa-de-itens-do-banco">
+                    <div class="banco-cartoes">
+                        <!-- Cartas Geradas Pelo JavaScrip -->
+                        <div class="cartoes-de-casa">
+                            <img src="./src/dados/img/carta-casa-teste.png" alt="carta-casa-teste" srcset="">
+                        </div>
+                        <div class="cartoes-de-casa">
+                            <img src="./src/dados/img/carta-casa-teste.png" alt="carta-casa-teste" srcset="">
+                        </div><div class="cartoes-de-casa">
+                            <img src="./src/dados/img/carta-casa-teste.png" alt="carta-casa-teste" srcset="">
+                        </div>
+                        
+                    </div>
 
-
-
+                    <div class="banco-casas">
+                        <div class="foto-da-casa">
+                            <img src="./src/dados/img/img-casa-teste.png" alt="">
+                        </div>
+                        <div class="foto-da-casa">
+                            <img src="./src/dados/img/img-casa-teste.png" alt="">
+                        </div>
+                        <div class="foto-da-casa">
+                            <img src="./src/dados/img/img-casa-teste.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container__posses-do-jogador">
+                <div class="jogador-status">
+                    <div class="img-do-jogador"></div>
+                    <div class="posse-do-jogador">10</div>
+                    <div class="cartas-do-jogador"></div>
+                </div>
+                <div class="jogador-status">
+                    <div class="img-do-jogador"></div>
+                    <div class="posse-do-jogador">10</div>
+                    <div class="cartas-do-jogador"></div>
+                </div>
+                <div class="jogador-status">
+                    <div class="img-do-jogador"></div>
+                    <div class="posse-do-jogador">10</div>
+                    <div class="cartas-do-jogador"></div>
+                </div>
+                <div class="jogador-status">
+                    <div class="img-do-jogador"></div>
+                    <div class="posse-do-jogador">10</div>
+                    <div class="cartas-do-jogador"></div>
+                </div>
+                <!-- <div class="jogador-status">
+                    <div class="img-do-jogador"></div>
+                    <div class="posse-do-jogador">10</div>
+                    <div class="cartas-do-jogador"></div>
+                </div> -->
+                <!-- <div class="jogador-status">
+                    <div class="img-do-jogador"></div>
+                    <div class="posse-do-jogador">10</div>
+                    <div class="cartas-do-jogador"></div>
+                </div> -->
+            </div>
+        </div>
     </div>
-
-
+    
     <!-- JS -->
     <script src="./src/script/engine.js" defer></script>
 </body>
