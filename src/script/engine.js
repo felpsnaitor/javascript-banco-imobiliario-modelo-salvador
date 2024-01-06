@@ -330,7 +330,18 @@ const dadosDoJogo = {
         {"id":4, "nome":"Naruto", "src":"./src/dados/img/boneco-naruto.jpg"},
         {"id":5, "nome":"Luffy", "src":"./src/dados/img/boneco-luffy.png"},
         {"id":6, "nome":"Saturo", "src":"./src/dados/img/boneco-gojo-saturo.jpg"}       
-    ]
+    ],
+    "jogadores":[
+        {"id":0, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000},
+        {"id":1, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000},
+        {"id":2, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000},
+        {"id":3, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000},
+        {"id":4, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000},
+        {"id":5, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000}
+    ],
+    "banco":{
+        "valorDoBanco":15348000
+    }
 
 }
 
@@ -343,16 +354,8 @@ const dado = [
     {"id":5, "imgDado":"./src/dados/img/dado-5.png"},
     {"id":6, "imgDado":"./src/dados/img/dado-6.png"}
 ]
-// variavel padrão
-const jogadores = [
-    {"id":1, "player":0, "status":"normal"},
-    {"id":2, "player":0, "status":"normal"},
-    {"id":3, "player":0, "status":"normal"},
-    {"id":4, "player":0, "status":"normal"},
-    {"id":5, "player":0, "status":"normal"},
-    {"id":6, "player":0, "status":"normal"}
-]
 
+// variavel padrão
 const valorDado = {
     "dado01":0,
     "dado02":0
@@ -364,7 +367,7 @@ let diaDePrisao = 0
 
 // abreveiando metodo .ramdown
 function sortindoNumeros(max, min){
-    const  valor = () => ~~(Math.ramdon() * max - min)
+    const  valor = () => ~~(Math.random() * max - min)
     return valor
 }
 
@@ -466,7 +469,7 @@ function pegandoSorteOuReves(){
     const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
 
     // colocando a carta SouR no tabuleiro
-    if(casasSorteouReves.includes(jogadores[0].player)){
+    if(casasSorteouReves.includes(dadosDoJogo.jogadores[0].playerContagemCasa)){
         let casaSR = document.createElement("div")
         casaSR.className = "sorte-ou-reves"
         casaSR.innerHTML = `
@@ -515,17 +518,17 @@ function pegandoOLadrao(){
     if(manha === 3 && valorDado.dado01 == valorDado.dado02){
         removendoImgAntiga()
         jogadorNaCasa(11)
-        jogadores[0].status = "preso"
+        dadosDoJogo.jogadores[0].status = "preso"
         manha = 0
     }
-        console.log(jogadores[0].player)
+        console.log(dadosDoJogo.jogadores[0].playerContagemCasa)
 
 }
 
 // função para ferias
 function tirandoFerias(){
-    if(jogadores[0].player === 21){
-        jogadores[0].status = "ferias"
+    if(dadosDoJogo.jogadores[0].playerContagemCasa === 21){
+        dadosDoJogo.jogadores[0].status = "ferias"
         
     }
 }
@@ -535,34 +538,39 @@ function foiPreso(){
     
     
     // Colocando o Status de Preso caso esteja na cadeia
-    if(jogadores[0].player === 11){
-        jogadores[0].status = "preso"
+    if(dadosDoJogo.jogadores[0].playerContagemCasa === 11){
+        dadosDoJogo.jogadores[0].status = "preso"
         
         
         // Fazendo o jogador ir para a cadeia caso caia em vá para a cadeia
-    } else if(jogadores[0].player === 31){
-        console.log(jogadores[0].player)
+    } else if(dadosDoJogo.jogadores[0].playerContagemCasa === 31){
+        console.log(dadosDoJogo.jogadores[0].playerContagemCasa)
         removendoImgAntiga()
         jogadorNaCasa(11)
-        jogadores[0].player = 11
-        jogadores[0].status = "preso"
+        dadosDoJogo.jogadores[0].playerContagemCasa = 11
+        dadosDoJogo.jogadores[0].status = "preso"
         
     }else {
-        jogadores[0].status = "normal";
+        dadosDoJogo.jogadores[0].status = "normal";
         
     }
+ }
 
-    // // Fazendo o Jogador ficar preso quando esta na cadeia
-    // if(jogadores[0].status === "preso"){
-    //     cadeia = true
-    // // Tirando o jogador da cadeia
-    // }else if (jogadores[0].status === "normal") {
-    //     cadeia = false
-    //     jogandoDados()
+// Criando Status do Jogador na tela
+dadosDoJogo.jogadores .forEach(() => {
+    const jogadorStatus = document.createElement("div")
+    jogadorStatus.className = "jogador-status"
+    jogadorStatus.innerHTML = `
+                    <div class="img-do-jogador">
+                    ${dadosDoJogo.bonecos[0].nome}
+                    <img src="${dadosDoJogo.bonecos[0].src}" alt="${dadosDoJogo.bonecos[0].nome}">
+                    </div>
+                    <div class="posse-do-jogador">R$ ${dadosDoJogo.jogadores[0].posseDinheiro}</div>
+                    <div class="cartas-do-jogador">${dadosDoJogo.jogadores[0].posseCasas}</div>`
 
-    // }
-    
-}
+    document.querySelector(".container__posses-do-jogador").appendChild(jogadorStatus)
+});
+
 
 
 
@@ -573,14 +581,16 @@ function foiPreso(){
         // pegado valor dos dados
         rolandoDado()
         
-        console.log(jogadores[0].status)
+        console.log(dadosDoJogo.jogadores[0].status)
         // faz com que o personagem pule as casas da soma dos dados
-        jogadorNaCasa(passosAtualizados())
-        pegandoOLadrao()
         foiPreso()
+        pegandoOLadrao()
         tirandoFerias()
         pegandoSorteOuReves()
-        console.log(jogadores[0].status)
+        jogadorNaCasa(passosAtualizados())
+        console.log(dadosDoJogo.jogadores[0].status)
+        console.log(dadosDoJogo.jogadores[0].posseDinheiro)
+
 
         // atualizando passos do jogador
         function passosAtualizados(){
@@ -590,7 +600,7 @@ function foiPreso(){
                 return passos
             }
             // travando Jogada do Player
-            if(jogadores[0].status.includes("preso") || jogadores[0].status.includes("ferias")){
+            if(dadosDoJogo.jogadores[0].status.includes("preso") || dadosDoJogo.jogadores[0].status.includes("ferias")){
                 preso = true
                 diaDePrisao += 1
                 console.log(diaDePrisao)
@@ -600,45 +610,58 @@ function foiPreso(){
                     diaDePrisao = 0
                 }
                 // Condissão para sair da prinsao
-                if(jogadores[0].status === "preso" && diaDePrisao === 3){
-                   liberdade()
-                } else if (jogadores[0].status === "preso" && manha == 1){
+                if(dadosDoJogo.jogadores[0].status === "preso" && diaDePrisao === 3){
+                    if(manha == 1){
+                        liberdade()
+                    }else {
+                        pagarValorParaBanco(50000)
+                        liberdade()
+                    }
+                } else if (dadosDoJogo.jogadores[0].status === "preso" && manha == 1){
                     liberdade()
                     // Conndissão para sair das ferias
-                 }else if (jogadores[0].status === "ferias" && diaDePrisao === 2 ){
+                 }else if (dadosDoJogo.jogadores[0].status === "ferias" && diaDePrisao === 2 ){
                     liberdade()
                 }
             }else {preso = false}
 
 
             if(preso){
+                preso = true
                 console.log("voce está preso")
             }else{
-                console.log("voce está livre")
-                console.log(contadorPassos())
-                jogadores[0].player += contadorPassos()
+                dadosDoJogo.jogadores[0].playerContagemCasa += contadorPassos()
             }
 
             
             // }
         
-            if(jogadores[0].player > 40){
-                jogadores[0].player -= 40
+            if(dadosDoJogo.jogadores[0].playerContagemCasa > 40){
+                dadosDoJogo.jogadores[0].playerContagemCasa -= 40
+                receberValorDoBanco(200000)
                 
             }
         
-            return jogadores[0].player 
+            return dadosDoJogo.jogadores[0].playerContagemCasa 
 
         }
 
         
     })
+
+    function receberValorDoBanco(valor){
+        dadosDoJogo.banco.valorDoBanco -= valor
+        dadosDoJogo.jogadores[0].posseDinheiro += valor
+    }
+    function pagarValorParaBanco(valor){
+        dadosDoJogo.banco.valorDoBanco += valor
+        dadosDoJogo.jogadores[0].posseDinheiro -= valor
+    }
 // }
 
 function init(){
     // jogandoDados()
     jogadorNaCasa(1)
-
 }
 
 init()
