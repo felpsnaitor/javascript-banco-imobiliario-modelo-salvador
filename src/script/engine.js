@@ -2,44 +2,44 @@ const dadosDoJogo = {
     "lugares":[
         {"id": 1,  "position":"casa inicio da partida", "nome":"inicio"},
         {"id": 2,  "position":"casa", "nome":"Mata Escura", "valor":100000},
-        {"id": 3,  "position":"casa", "nome":"São Caetano", "valor":100000},
-        {"id": 4,  "position":"shopping", "nome":"Shopping da Bahia", "valor":100000} ,
-        {"id": 5,  "position":"casa", "nome":"Bom Jua", "valor":100000},
-        {"id": 6,  "position":"casa", "nome":"Bairro da Paz", "valor":100000},
+        {"id": 3,  "position":"casa", "nome":"São Caetano", "valor":75000},
+        {"id": 4,  "position":"shopping", "nome":"Shopping da Bahia", "valor":150000} ,
+        {"id": 5,  "position":"casa", "nome":"Bom Jua", "valor":60000},
+        {"id": 6,  "position":"casa", "nome":"Bairro da Paz", "valor":320000},
         {"id": 7,  "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 8,  "position":"casa", "nome":"Águas Claras", "valor":100000},
-        {"id": 9,  "position":"shopping" , "nome":"Salvador Shopping", "valor":100000},
-        {"id": 10, "position":"casa", "nome":"Curuzu", "valor":100000},
+        {"id": 8,  "position":"casa", "nome":"Águas Claras", "valor":300000},
+        {"id": 9,  "position":"shopping", "nome":"Salvador Shopping", "valor":200000},
+        {"id": 10, "position":"casa", "nome":"Curuzu", "valor":300000},
         {"id": 11, "position":"cadeia", "nome":"cadeia"},
         {"id": 12, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 13, "position":"casa", "nome":"Cabula", "valor":100000},
-        {"id": 14, "position":"casa", "nome":"Liberdade", "valor":100000},
-        {"id": 15, "position":"ganhe 200x", "nome":"ganhe 200x"},
-        {"id": 16, "position":"casa", "nome":"Nordeste de Amaralina", "valor":100000},
-        {"id": 17, "position":"shopping" , "nome":"Shopping Bela Vista", "valor":100000},
-        {"id": 18, "position":"casa", "nome":"Ondina", "valor":100000},
-        {"id": 19, "position":"casa", "nome":"Barra", "valor":100000},
+        {"id": 13, "position":"casa", "nome":"Cabula", "valor":200000},
+        {"id": 14, "position":"casa", "nome":"Liberdade", "valor":180000},
+        {"id": 15, "position":"ganhe 2000x", "nome":"ganhe 2000x"},
+        {"id": 16, "position":"casa", "nome":"Nordeste de Amaralina", "valor":180000},
+        {"id": 17, "position":"shopping", "nome":"Shopping Bela Vista", "valor":200000},
+        {"id": 18, "position":"casa", "nome":"Ondina", "valor":400000},
+        {"id": 19, "position":"casa", "nome":"Barra", "valor":350000},
         {"id": 20, "position":"casa", "nome":"Pituba", "valor":100000},
         {"id": 21, "position":"ferias", "nome":"ferias"},
-        {"id": 22, "position":"casa", "nome":"Pelourinho", "valor":100000},
-        {"id": 23, "position":"shopping" , "nome":"Shopping Paralela", "valor":100000},
-        {"id": 24, "position":"pague 200x", "nome":"pague 200x"},
+        {"id": 22, "position":"casa", "nome":"Pelourinho", "valor":120000},
+        {"id": 23, "position":"shopping", "nome":"Shopping Paralela", "valor":200000},
+        {"id": 24, "position":"pague 2000x", "nome":"pague 2000x"},
         {"id": 25, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 26, "position":"casa", "nome":"Imbui", "valor":100000},
-        {"id": 27, "position":"casa", "nome":"Tororó", "valor":100000},
+        {"id": 26, "position":"casa", "nome":"Imbui", "valor":220000},
+        {"id": 27, "position":"casa", "nome":"Tororó", "valor":220000},
         {"id": 28, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 29, "position":"casa", "nome":"Nazaré", "valor":100000},
-        {"id": 30, "position":"shopping" , "nome":"Shopping Center Lapa", "valor":100000},
+        {"id": 29, "position":"casa", "nome":"Nazaré", "valor":240000},
+        {"id": 30, "position":"shopping", "nome":"Shopping Center Lapa", "valor":150000},
         {"id": 31, "position":"vá para a cadeia", "nome":"vá para a cadeia"},
-        {"id": 32, "position":"casa", "nome":"Paripe", "valor":100000},
+        {"id": 32, "position":"casa", "nome":"Paripe", "valor":140000},
         {"id": 33, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 34, "position":"casa", "nome":"Ribeira", "valor":100000},
-        {"id": 35, "position":"casa", "nome":"Itapuã", "valor":100000},
-        {"id": 36, "position":"casa", "nome":"Rio Vermelho", "valor":100000},
-        {"id": 37, "position":"shopping" , "nome":"Shopping Barra", "valor":100000},
-        {"id": 38, "position":"casa", "nome":"Horto Florestal", "valor":100000},
+        {"id": 34, "position":"casa", "nome":"Ribeira", "valor":160000},
+        {"id": 35, "position":"casa", "nome":"Itapuã", "valor":140000},
+        {"id": 36, "position":"casa", "nome":"Rio Vermelho", "valor":280000},
+        {"id": 37, "position":"shopping", "nome":"Shopping Barra", "valor":200000},
+        {"id": 38, "position":"casa", "nome":"Horto Florestal", "valor":260000},
         {"id": 39, "position":"sorte ou reves", "nome":"sorte ou reves"},
-        {"id": 40, "position":"casa", "nome":"Paralela", "valor":100000}
+        {"id": 40, "position":"casa", "nome":"Paralela", "valor":260000}
     ],
     "cartas":[
         {"tipo":[
@@ -340,7 +340,7 @@ const dadosDoJogo = {
         {"id":5, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000}
     ],
     "banco":{
-        "valorDoBanco":15348000
+        "posseDinheiro":15348000, "posseCasas":[]
     }
 
 }
@@ -360,6 +360,12 @@ const valorDado = {
     "dado01":0,
     "dado02":0
 }
+
+dadosDoJogo.lugares.forEach((item) => {
+    if(item.position === "casa" || item.position === "shopping")
+        dadosDoJogo.banco.posseCasas.push(item.nome)
+})
+console.log(dadosDoJogo.banco.posseCasas)
 
 // Chave de trava da função caso esteja na cadeia ou nas ferias
 let preso = false
@@ -463,6 +469,7 @@ function removendoImgAntiga(){
 
 // salvando casa do Sorte ou Reves
 const casasSorteouReves = [7, 12, 25, 28, 33, 39]
+
 // configurando Sorte ou Revez para aparecer quando o jogador estiver na casa
 function pegandoSorteOuReves(){
     // pegando a carta do sote ou reves
@@ -499,7 +506,7 @@ function pegandoSorteOuReves(){
         })
         
         
-        
+        // Removendo Carta de Sorte ou Reves
     }else if(document.querySelector(".sorte-ou-reves")) {
         document.querySelector(".sorte-ou-reves").remove()
     }
@@ -557,7 +564,7 @@ function foiPreso(){
  }
 
 // Criando Status do Jogador na tela
-dadosDoJogo.jogadores .forEach(() => {
+dadosDoJogo.jogadores.forEach(() => {
     const jogadorStatus = document.createElement("div")
     jogadorStatus.className = "jogador-status"
     jogadorStatus.innerHTML = `
@@ -577,21 +584,38 @@ dadosDoJogo.jogadores .forEach(() => {
 // Fazendo o Jogador andar quando rolar os dados
 // function jogandoDados(){
     document.querySelector(`#btn-dado`).addEventListener("click", () => {
+        // Removendo Caixa de compra de casa
+        if(document.querySelector(".vendendo-uma-casa")){
+            document.querySelector(".vendendo-uma-casa").remove()
+        }
         removendoImgAntiga()
         // pegado valor dos dados
         rolandoDado()
         
         console.log(dadosDoJogo.jogadores[0].status)
+        console.log("dadosDoJogo.banco.posseDinheiro")
+        console.log(dadosDoJogo.banco.posseDinheiro)
+        console.log("dadosDoJogo.jogadores[0].posseDinheiro")
+        console.log(dadosDoJogo.jogadores[0].posseDinheiro)
         // faz com que o personagem pule as casas da soma dos dados
         foiPreso()
         pegandoOLadrao()
         tirandoFerias()
-        pegandoSorteOuReves()
         jogadorNaCasa(passosAtualizados())
-        console.log(dadosDoJogo.jogadores[0].status)
-        console.log(dadosDoJogo.jogadores[0].posseDinheiro)
+        pegandoSorteOuReves()
+        comprandoCasa()
 
-
+        function pagueOuGanhe(){
+            function valorDo2000(){
+                valorGanhe = contadorPassos() * 2000;
+                return valorGanhe
+            }
+            if(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].position === "ganhe 2000x"){
+                receberValorDoBanco(valorDo2000())
+            }else if(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].position === "pague 2000x"){
+                pagarValorParaBanco(valorDo2000())
+            }
+        }
         // atualizando passos do jogador
         function passosAtualizados(){
             // Contando passos do player
@@ -604,22 +628,25 @@ dadosDoJogo.jogadores .forEach(() => {
                 preso = true
                 diaDePrisao += 1
                 console.log(diaDePrisao)
-
+                // Librando da prisao ou da ferias
                 function liberdade(){
                     preso = false
                     diaDePrisao = 0
                 }
                 // Condissão para sair da prinsao
                 if(dadosDoJogo.jogadores[0].status === "preso" && diaDePrisao === 3){
+                    // liberando se tiver tirado os dados iguais sem pagar fiança
                     if(manha == 1){
                         liberdade()
+                        // Liberando após 3 rodadas na cadeia pagando a fiança
                     }else {
                         pagarValorParaBanco(50000)
                         liberdade()
                     }
+                // liberando se tiver tirado os dados iguais sem pagar fiança
                 } else if (dadosDoJogo.jogadores[0].status === "preso" && manha == 1){
                     liberdade()
-                    // Conndissão para sair das ferias
+                // Conndissão para sair das ferias
                  }else if (dadosDoJogo.jogadores[0].status === "ferias" && diaDePrisao === 2 ){
                     liberdade()
                 }
@@ -645,23 +672,65 @@ dadosDoJogo.jogadores .forEach(() => {
             return dadosDoJogo.jogadores[0].playerContagemCasa 
 
         }
-
+        // Comprar casa quando estiver disponivel
+        function comprandoCasa(){
+            
+            if(dadosDoJogo.banco.posseCasas.includes(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].nome)){
+                // Criando janela de Compra de casa
+                let popUpComprarCasa = document.createElement("div")
+                popUpComprarCasa.className = "vendendo-uma-casa"
+                popUpComprarCasa.innerHTML = `
+                <h1>Esta casa Estar a Venda</h1>
+                <h2>Valor R$ ${dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor}</h2>
+                <h3>Quer Comprar?</h3>
+                <button id="comprar-sim">sim</button>
+                <button id="comprar-nao">não</button>`
+        
+                document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(popUpComprarCasa)
+                
+                // Comprando casa quando Clicar em sim
+                document.querySelector(`#comprar-sim`).addEventListener("click", () => {
+                    if(dadosDoJogo.jogadores[0].posseDinheiro >= dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor){
+                        // Transferir dineheiro para o banco
+                        pagarValorParaBanco(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor)
+                        // pegando nome do lugar
+                        const nomeDaCasaParaTransferencia = dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].nome
+                        // removendo da posse do banco
+                        dadosDoJogo.banco.posseCasas.splice(nomeDaCasaParaTransferencia, 1)
+                        console.log(dadosDoJogo.banco.posseCasas)
+                        // adicionando na posse do jogador
+                        dadosDoJogo.jogadores[0].posseCasas.push(nomeDaCasaParaTransferencia)
+                        console.log(dadosDoJogo.jogadores[0].posseCasas)
+                        // removendo janela de compra de casa
+                        document.querySelector(".vendendo-uma-casa").remove()
+                    }
+                })
+                    
+            // Removendo Painel de Compra de casa
+            }
+            
+            
+        }
         
     })
 
     function receberValorDoBanco(valor){
-        dadosDoJogo.banco.valorDoBanco -= valor
+        if(dadosDoJogo.jogadores[0].status === "normal" || dadosDoJogo.jogadores[0].status === "ferias"){
+        dadosDoJogo.banco.posseDinheiro -= valor
         dadosDoJogo.jogadores[0].posseDinheiro += valor
+        }
     }
     function pagarValorParaBanco(valor){
-        dadosDoJogo.banco.valorDoBanco += valor
+        dadosDoJogo.banco.posseDinheiro += valor
         dadosDoJogo.jogadores[0].posseDinheiro -= valor
     }
 // }
 
+
 function init(){
     // jogandoDados()
     jogadorNaCasa(1)
+    
 }
 
 init()

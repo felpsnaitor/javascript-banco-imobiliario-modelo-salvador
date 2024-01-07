@@ -95,6 +95,13 @@
     transform: rotate3d(1, 1, 1, 360deg);
 }
 
+/* Comprando Casa */
+.vendendo-uma-casa{
+    width: 280px;
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+}
 /* PAINEL A DIREITA*/
 .container__lado-direito {
     display: grid;
