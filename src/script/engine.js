@@ -365,7 +365,7 @@ dadosDoJogo.lugares.forEach((item) => {
     if(item.position === "casa" || item.position === "shopping")
         dadosDoJogo.banco.posseCasas.push(item.nome)
 })
-console.log(dadosDoJogo.banco.posseCasas)
+
 
 // Chave de trava da função caso esteja na cadeia ou nas ferias
 let preso = false
@@ -494,7 +494,6 @@ function pegandoSorteOuReves(){
             classList.toggle('girando-card');
         
             const numeroSortido  = Math.floor(Math.random() * (6 - 0))
-            console.log(numeroSortido)
             let casaSR = document.createElement("div")
             casaSR.className = "carta-sorte-ou-reves"
             casaSR.innerHTML = `<h2>${sorteReves[numeroSortido].nome}</h2>
@@ -528,7 +527,6 @@ function pegandoOLadrao(){
         dadosDoJogo.jogadores[0].status = "preso"
         manha = 0
     }
-        console.log(dadosDoJogo.jogadores[0].playerContagemCasa)
 
 }
 
@@ -551,7 +549,6 @@ function foiPreso(){
         
         // Fazendo o jogador ir para a cadeia caso caia em vá para a cadeia
     } else if(dadosDoJogo.jogadores[0].playerContagemCasa === 31){
-        console.log(dadosDoJogo.jogadores[0].playerContagemCasa)
         removendoImgAntiga()
         jogadorNaCasa(11)
         dadosDoJogo.jogadores[0].playerContagemCasa = 11
@@ -572,7 +569,9 @@ dadosDoJogo.jogadores.forEach(() => {
                     ${dadosDoJogo.bonecos[0].nome}
                     <img src="${dadosDoJogo.bonecos[0].src}" alt="${dadosDoJogo.bonecos[0].nome}">
                     </div>
-                    <div class="posse-do-jogador">R$ ${dadosDoJogo.jogadores[0].posseDinheiro}</div>
+                    <div class="posse-do-jogador">
+                    <h1 id="valor-do-jogador">R$ ${dadosDoJogo.jogadores[0].posseDinheiro}</h1>
+                    </div>
                     <div class="cartas-do-jogador">${dadosDoJogo.jogadores[0].posseCasas}</div>`
 
     document.querySelector(".container__posses-do-jogador").appendChild(jogadorStatus)
@@ -592,11 +591,6 @@ dadosDoJogo.jogadores.forEach(() => {
         // pegado valor dos dados
         rolandoDado()
         
-        console.log(dadosDoJogo.jogadores[0].status)
-        console.log("dadosDoJogo.banco.posseDinheiro")
-        console.log(dadosDoJogo.banco.posseDinheiro)
-        console.log("dadosDoJogo.jogadores[0].posseDinheiro")
-        console.log(dadosDoJogo.jogadores[0].posseDinheiro)
         // faz com que o personagem pule as casas da soma dos dados
         foiPreso()
         pegandoOLadrao()
@@ -604,14 +598,18 @@ dadosDoJogo.jogadores.forEach(() => {
         jogadorNaCasa(passosAtualizados())
         pegandoSorteOuReves()
         comprandoCasa()
+        pagueOuGanhe()
 
+        // funcçao do pague ou ganhe 2000x
         function pagueOuGanhe(){
             function valorDo2000(){
-                valorGanhe = contadorPassos() * 2000;
+                valorGanhe = (valorDado.dado01 + valorDado.dado02) * 2000;
                 return valorGanhe
             }
+            // ganhando 2000x
             if(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].position === "ganhe 2000x"){
                 receberValorDoBanco(valorDo2000())
+                // Pagando  2000x
             }else if(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].position === "pague 2000x"){
                 pagarValorParaBanco(valorDo2000())
             }
@@ -620,14 +618,13 @@ dadosDoJogo.jogadores.forEach(() => {
         function passosAtualizados(){
             // Contando passos do player
             function contadorPassos(){
-                let passos = valorDado.dado01 + valorDado.dado02
+                let passos = (valorDado.dado01 + valorDado.dado02)
                 return passos
             }
             // travando Jogada do Player
             if(dadosDoJogo.jogadores[0].status.includes("preso") || dadosDoJogo.jogadores[0].status.includes("ferias")){
                 preso = true
                 diaDePrisao += 1
-                console.log(diaDePrisao)
                 // Librando da prisao ou da ferias
                 function liberdade(){
                     preso = false
@@ -657,7 +654,9 @@ dadosDoJogo.jogadores.forEach(() => {
                 preso = true
                 console.log("voce está preso")
             }else{
-                dadosDoJogo.jogadores[0].playerContagemCasa += contadorPassos()
+                dadosDoJogo.jogadores[0].playerContagemCasa += contadorPassos() +1
+                console.log(dadosDoJogo.jogadores[0].playerContagemCasa )
+                console.log(contadorPassos())
             }
 
             
@@ -669,7 +668,7 @@ dadosDoJogo.jogadores.forEach(() => {
                 
             }
         
-            return dadosDoJogo.jogadores[0].playerContagemCasa 
+            return dadosDoJogo.jogadores[0].playerContagemCasa
 
         }
         // Comprar casa quando estiver disponivel
@@ -694,16 +693,24 @@ dadosDoJogo.jogadores.forEach(() => {
                         // Transferir dineheiro para o banco
                         pagarValorParaBanco(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor)
                         // pegando nome do lugar
-                        const nomeDaCasaParaTransferencia = dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].nome
+                        const nomeDaCasaParaTransferencia = dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].nome 
+                        
+                        const indexDaCasaNoBanco = dadosDoJogo.banco.posseCasas.indexOf(nomeDaCasaParaTransferencia)
+                        
                         // removendo da posse do banco
-                        dadosDoJogo.banco.posseCasas.splice(nomeDaCasaParaTransferencia, 1)
-                        console.log(dadosDoJogo.banco.posseCasas)
+                        if(indexDaCasaNoBanco !== -1){
+                            dadosDoJogo.banco.posseCasas.splice(nomeDaCasaParaTransferencia, 1)
+                        }
+                        
                         // adicionando na posse do jogador
                         dadosDoJogo.jogadores[0].posseCasas.push(nomeDaCasaParaTransferencia)
-                        console.log(dadosDoJogo.jogadores[0].posseCasas)
+                        
                         // removendo janela de compra de casa
                         document.querySelector(".vendendo-uma-casa").remove()
                     }
+                })
+                document.querySelector(`#comprar-nao`).addEventListener("click", () => {
+                    document.querySelector(".vendendo-uma-casa").remove()
                 })
                     
             // Removendo Painel de Compra de casa
@@ -714,22 +721,52 @@ dadosDoJogo.jogadores.forEach(() => {
         
     })
 
+    // atalho para acessar html
+    const statusBanco = document.getElementById("valor-do-banco")
+    const statusJogador = document.getElementById("valor-do-jogador")
+
     function receberValorDoBanco(valor){
         if(dadosDoJogo.jogadores[0].status === "normal" || dadosDoJogo.jogadores[0].status === "ferias"){
         dadosDoJogo.banco.posseDinheiro -= valor
         dadosDoJogo.jogadores[0].posseDinheiro += valor
+        // Atualizando Status
+        statusBanco.innerText = `R$ ${dadosDoJogo.banco.posseDinheiro}`
+        statusJogador.innerText = `R$ ${dadosDoJogo.jogadores[0].posseDinheiro}`
+
         }
     }
     function pagarValorParaBanco(valor){
         dadosDoJogo.banco.posseDinheiro += valor
         dadosDoJogo.jogadores[0].posseDinheiro -= valor
+        // Atualizando Status
+        statusBanco.innerText = `R$ ${dadosDoJogo.banco.posseDinheiro}`
+        statusJogador.innerText = `R$ ${dadosDoJogo.jogadores[0].posseDinheiro}`
     }
 // }
+// Criando Imaagens no Status do Banco
+for (let i = 0; i < 2; i++) {
+    let imagemBanco = document.createElement("div");
+    imagemBanco.className = "cartoes-de-casa"
+    imagemBanco.innerHTML = `
+        <img src="./src/dados/img/carta-casa-teste.png" alt="carta-casa-teste">
+        `
 
+    document.querySelector(".banco-cartoes").appendChild(imagemBanco)
+
+    imagemBanco = document.createElement("div");
+    imagemBanco.className = "foto-da-casa"
+    imagemBanco.innerHTML = ` 
+        <img src="./src/dados/img/img-casa-teste.png" alt="img-casa-teste">
+        <img src="./src/dados/img/img-predio-teste.png" alt="img-predio-teste">
+        `
+
+    document.querySelector(".banco-casas").appendChild(imagemBanco)
+}
 
 function init(){
     // jogandoDados()
     jogadorNaCasa(1)
+    statusBanco.innerText = `R$ ${dadosDoJogo.banco.posseDinheiro}`
     
 }
 
