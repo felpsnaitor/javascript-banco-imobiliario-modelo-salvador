@@ -4,3 +4,13 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 15px;
+}
+
+h2{
+    font-size: 13px;
+}
+h3{
+    font-size: 10px;
+}

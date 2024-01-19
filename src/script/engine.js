@@ -324,12 +324,12 @@ const dadosDoJogo = {
         }
     ],
     "bonecos":[
-        {"id":1, "nome":"Gon", "src":"./src/dados/img/boneco-gon.png"},
-        {"id":2, "nome":"Killua", "src":"./src/dados/img/boneco-killua.png"},
-        {"id":3, "nome":"Goku", "src":"./src/dados/img/boneco-goku.png"},
-        {"id":4, "nome":"Naruto", "src":"./src/dados/img/boneco-naruto.jpg"},
-        {"id":5, "nome":"Luffy", "src":"./src/dados/img/boneco-luffy.png"},
-        {"id":6, "nome":"Saturo", "src":"./src/dados/img/boneco-gojo-saturo.jpg"}       
+        {"id":0, "nome":"Gon", "src":"./src/dados/img/boneco-gon.png"},
+        {"id":1, "nome":"Killua", "src":"./src/dados/img/boneco-killua.png"},
+        {"id":2, "nome":"Goku", "src":"./src/dados/img/boneco-goku.png"},
+        {"id":3, "nome":"Naruto", "src":"./src/dados/img/boneco-naruto.jpg"},
+        {"id":4, "nome":"Luffy", "src":"./src/dados/img/boneco-luffy.png"},
+        {"id":5, "nome":"Saturo", "src":"./src/dados/img/boneco-gojo-saturo.jpg"}       
     ],
     "jogadores":[
         {"id":0, "playerContagemCasa":0, "status":"normal", "posseCasas":[], "posseDinheiro":2558000},
@@ -360,6 +360,7 @@ const valorDado = {
     "dado01":0,
     "dado02":0
 }
+
 
 dadosDoJogo.lugares.forEach((item) => {
     if(item.position === "casa" || item.position === "shopping")
@@ -452,136 +453,144 @@ for (let i = 0; i < dadosDoJogo.lugares.length; i++) {
     
 }
 
-// colocando boneco para casa
-function jogadorNaCasa(indentificador){
-    
-    const playerHtml = document.createElement("div")
-    playerHtml.className = "jogador"
-    playerHtml.innerHTML = `<img src="./src/dados/img/boneco-luffy.png" alt="">`
-    
-    document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
-    
-}
-// removendo jogador da casa anterior
-function removendoImgAntiga(){
-    document.querySelector(".jogador").remove()
-}
+
 
 // salvando casa do Sorte ou Reves
 const casasSorteouReves = [7, 12, 25, 28, 33, 39]
 
 // configurando Sorte ou Revez para aparecer quando o jogador estiver na casa
-function pegandoSorteOuReves(){
-    // pegando a carta do sote ou reves
-    const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
 
-    // colocando a carta SouR no tabuleiro
-    if(casasSorteouReves.includes(dadosDoJogo.jogadores[0].playerContagemCasa)){
-        let casaSR = document.createElement("div")
-        casaSR.className = "sorte-ou-reves"
-        casaSR.innerHTML = `
-        <button class="girando-card" id="btn-sorteOuReves">
-        <img id="img-sorteOuReves" src="./src/dados/img/sorte-reves.png" alt="" srcset="">
-        </button>`
-
-        document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(casaSR)
-
-        // Mostrando qual o conteudo da carta
-        document.querySelector(`#btn-sorteOuReves`).addEventListener("click", () => {
-            
-            // Girando Carta do SouR quando clicar
-            document.getElementById("btn-sorteOuReves").
-            classList.toggle('girando-card');
-        
-            const numeroSortido  = Math.floor(Math.random() * (6 - 0))
-            let casaSR = document.createElement("div")
-            casaSR.className = "carta-sorte-ou-reves"
-            casaSR.innerHTML = `<h2>${sorteReves[numeroSortido].nome}</h2>
-            <p>${sorteReves[numeroSortido].texto}</p>`
-    
-            document.querySelector(".sorte-ou-reves").appendChild(casaSR)
-            
-            // aqui vem a ação do sorte ou reves
-        })
-        
-        
-        // Removendo Carta de Sorte ou Reves
-    }else if(document.querySelector(".sorte-ou-reves")) {
-        document.querySelector(".sorte-ou-reves").remove()
+function jogadaDoJogador(player){
+    // removendo jogador da casa anterior
+    function removendoImgAntiga(){
+        document.querySelector(".jogador").remove()
     }
-}
-
-// contagem de dados iguais
-let manha = 0
-function pegandoOLadrao(){
-    if(valorDado.dado01 == valorDado.dado02){
-        manha ++   
+    // colocando boneco para casa
+    function jogadorNaCasa(indentificador){
         
-    } else {manha = 0}
-    
-   
-    
-    if(manha === 3 && valorDado.dado01 == valorDado.dado02){
-        removendoImgAntiga()
-        jogadorNaCasa(11)
-        dadosDoJogo.jogadores[0].status = "preso"
-        manha = 0
+        const playerHtml = document.createElement("div")
+        playerHtml.className = "jogador"
+        playerHtml.innerHTML = `<img src="${dadosDoJogo.bonecos[player].src}"
+         alt="${dadosDoJogo.bonecos[player].nome}">`
+        
+        document.querySelector(`#casa${indentificador}`).appendChild(playerHtml)
+        
     }
 
-}
-
-// função para ferias
-function tirandoFerias(){
-    if(dadosDoJogo.jogadores[0].playerContagemCasa === 21){
-        dadosDoJogo.jogadores[0].status = "ferias"
+    const statusBanco = document.getElementById("valor-do-banco")
+    const statusJogador = document.getElementById("valor-do-jogador")
+     function pegandoSorteOuReves(){
+         // pegando a carta do sote ou reves
+         const sorteReves = dadosDoJogo.cartas[0].tipo[2]["sorte ou reves"]
+     
+         // colocando a carta SouR no tabuleiro
+         if(casasSorteouReves.includes(dadosDoJogo.jogadores[player].playerContagemCasa)){
+             let casaSR = document.createElement("div")
+             casaSR.className = "sorte-ou-reves"
+             casaSR.innerHTML = `
+             <button class="girando-card" id="btn-sorteOuReves">
+             <img id="img-sorteOuReves" src="./src/dados/img/sorte-reves.png" alt="" srcset="">
+             </button>`
+     
+             document.querySelector(".container__tabuleiro__cartas-sorte-reves").appendChild(casaSR)
+     
+             // Mostrando qual o conteudo da carta
+             document.querySelector(`#btn-sorteOuReves`).addEventListener("click", () => {
+                 
+                 // Girando Carta do SouR quando clicar
+                 document.getElementById("btn-sorteOuReves").
+                 classList.toggle('girando-card');
+             
+                 const numeroSortido  = Math.floor(Math.random() * (6 - 0))
+                 let casaSR = document.createElement("div")
+                 casaSR.className = "carta-sorte-ou-reves"
+                 casaSR.innerHTML = `<h2>${sorteReves[numeroSortido].nome}</h2>
+                 <p>${sorteReves[numeroSortido].texto}</p>`
+         
+                 document.querySelector(".sorte-ou-reves").appendChild(casaSR)
+                 
+                 // aqui vem a ação do sorte ou reves
+             })
+             
+             
+             // Removendo Carta de Sorte ou Reves
+         }else if(document.querySelector(".sorte-ou-reves")) {
+             document.querySelector(".sorte-ou-reves").remove()
+         }
+     }
+     
+     // contagem de dados iguais
+     let manha = 0
+     function pegandoOLadrao(){
+         if(valorDado.dado01 == valorDado.dado02){
+             manha ++   
+             
+         } else {manha = 0}
+         
         
-    }
-}
-
-// função para Prisao
-function foiPreso(){
-    
-    
-    // Colocando o Status de Preso caso esteja na cadeia
-    if(dadosDoJogo.jogadores[0].playerContagemCasa === 11){
-        dadosDoJogo.jogadores[0].status = "preso"
+         
+         if(manha === 3 && valorDado.dado01 == valorDado.dado02){
+             removendoImgAntiga()
+             jogadorNaCasa(11)
+             dadosDoJogo.jogadores[player].status = "preso"
+             manha = 0
+         }
+     
+     }
+     
+     // função para ferias
+     function tirandoFerias(){
+         if(dadosDoJogo.jogadores[player].playerContagemCasa === 21){
+             dadosDoJogo.jogadores[player].status = "ferias"
+             
+         }
+     }
+     
+     // função para Prisao
+     function foiPreso(){
+         
+         
+         // Colocando o Status de Preso caso esteja na cadeia
+         if(dadosDoJogo.jogadores[player].playerContagemCasa === 11){
+             dadosDoJogo.jogadores[player].status = "preso"
+             
+             
+             // Fazendo o jogador ir para a cadeia caso caia em vá para a cadeia
+         } else if(dadosDoJogo.jogadores[player].playerContagemCasa === 31){
+             removendoImgAntiga()
+             jogadorNaCasa(11)
+             dadosDoJogo.jogadores[player].playerContagemCasa = 11
+             dadosDoJogo.jogadores[player].status = "preso"
+             
+         }else {
+             dadosDoJogo.jogadores[player].status = "normal";
+             
+         }
+      }
+     
+      
+      
+      
+     // Criando Status do Jogador na tela
+     dadosDoJogo.jogadores.forEach((idPlayer) => {
+        console.log(idPlayer.id)
+         const jogadorStatus = document.createElement("div")
+         jogadorStatus.className = "jogador-status"
+         jogadorStatus.innerHTML = `
+         <div class="img-do-jogador">
+         ${dadosDoJogo.bonecos[idPlayer.id].nome}
+         <img src="${dadosDoJogo.bonecos[idPlayer.id].src}" alt="${dadosDoJogo.bonecos[idPlayer.id].nome}">
+         </div>
+         <div class="posse-do-jogador">
+         <h1 id="valor-do-jogador">R$ ${dadosDoJogo.jogadores[idPlayer.id].posseDinheiro}</h1>
+         </div>
+         <div class="cartas-do-jogador">${dadosDoJogo.jogadores[idPlayer.id].posseCasas}</div>`
+         
+         document.querySelector(".container__posses-do-jogador").appendChild(jogadorStatus)
+        });
         
-        
-        // Fazendo o jogador ir para a cadeia caso caia em vá para a cadeia
-    } else if(dadosDoJogo.jogadores[0].playerContagemCasa === 31){
-        removendoImgAntiga()
-        jogadorNaCasa(11)
-        dadosDoJogo.jogadores[0].playerContagemCasa = 11
-        dadosDoJogo.jogadores[0].status = "preso"
-        
-    }else {
-        dadosDoJogo.jogadores[0].status = "normal";
-        
-    }
- }
-
-// Criando Status do Jogador na tela
-dadosDoJogo.jogadores.forEach(() => {
-    const jogadorStatus = document.createElement("div")
-    jogadorStatus.className = "jogador-status"
-    jogadorStatus.innerHTML = `
-                    <div class="img-do-jogador">
-                    ${dadosDoJogo.bonecos[0].nome}
-                    <img src="${dadosDoJogo.bonecos[0].src}" alt="${dadosDoJogo.bonecos[0].nome}">
-                    </div>
-                    <div class="posse-do-jogador">
-                    <h1 id="valor-do-jogador">R$ ${dadosDoJogo.jogadores[0].posseDinheiro}</h1>
-                    </div>
-                    <div class="cartas-do-jogador">${dadosDoJogo.jogadores[0].posseCasas}</div>`
-
-    document.querySelector(".container__posses-do-jogador").appendChild(jogadorStatus)
-});
-
-
-
-
-// Fazendo o Jogador andar quando rolar os dados
-// function jogandoDados(){
+        jogadorNaCasa(1)
+        // Fazendo o Jogador andar quando rolar os dados
     document.querySelector(`#btn-dado`).addEventListener("click", () => {
         // Removendo Caixa de compra de casa
         if(document.querySelector(".vendendo-uma-casa")){
@@ -607,10 +616,10 @@ dadosDoJogo.jogadores.forEach(() => {
                 return valorGanhe
             }
             // ganhando 2000x
-            if(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].position === "ganhe 2000x"){
+            if(dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].position === "ganhe 2000x"){
                 receberValorDoBanco(valorDo2000())
                 // Pagando  2000x
-            }else if(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].position === "pague 2000x"){
+            }else if(dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].position === "pague 2000x"){
                 pagarValorParaBanco(valorDo2000())
             }
         }
@@ -622,7 +631,7 @@ dadosDoJogo.jogadores.forEach(() => {
                 return passos
             }
             // travando Jogada do Player
-            if(dadosDoJogo.jogadores[0].status.includes("preso") || dadosDoJogo.jogadores[0].status.includes("ferias")){
+            if(dadosDoJogo.jogadores[player].status.includes("preso") || dadosDoJogo.jogadores[player].status.includes("ferias")){
                 preso = true
                 diaDePrisao += 1
                 // Librando da prisao ou da ferias
@@ -631,7 +640,7 @@ dadosDoJogo.jogadores.forEach(() => {
                     diaDePrisao = 0
                 }
                 // Condissão para sair da prinsao
-                if(dadosDoJogo.jogadores[0].status === "preso" && diaDePrisao === 3){
+                if(dadosDoJogo.jogadores[player].status === "preso" && diaDePrisao === 3){
                     // liberando se tiver tirado os dados iguais sem pagar fiança
                     if(manha == 1){
                         liberdade()
@@ -641,10 +650,10 @@ dadosDoJogo.jogadores.forEach(() => {
                         liberdade()
                     }
                 // liberando se tiver tirado os dados iguais sem pagar fiança
-                } else if (dadosDoJogo.jogadores[0].status === "preso" && manha == 1){
+                } else if (dadosDoJogo.jogadores[player].status === "preso" && manha == 1){
                     liberdade()
                 // Conndissão para sair das ferias
-                 }else if (dadosDoJogo.jogadores[0].status === "ferias" && diaDePrisao === 2 ){
+                 }else if (dadosDoJogo.jogadores[player].status === "ferias" && diaDePrisao === 2 ){
                     liberdade()
                 }
             }else {preso = false}
@@ -654,33 +663,33 @@ dadosDoJogo.jogadores.forEach(() => {
                 preso = true
                 console.log("voce está preso")
             }else{
-                dadosDoJogo.jogadores[0].playerContagemCasa += contadorPassos() +1
-                console.log(dadosDoJogo.jogadores[0].playerContagemCasa )
+                dadosDoJogo.jogadores[player].playerContagemCasa += contadorPassos() +1
+                console.log(dadosDoJogo.jogadores[player].playerContagemCasa )
                 console.log(contadorPassos())
             }
 
             
             // }
         
-            if(dadosDoJogo.jogadores[0].playerContagemCasa > 40){
-                dadosDoJogo.jogadores[0].playerContagemCasa -= 40
+            if(dadosDoJogo.jogadores[player].playerContagemCasa > 40){
+                dadosDoJogo.jogadores[player].playerContagemCasa -= 40
                 receberValorDoBanco(200000)
                 
             }
         
-            return dadosDoJogo.jogadores[0].playerContagemCasa
+            return dadosDoJogo.jogadores[player].playerContagemCasa
 
         }
         // Comprar casa quando estiver disponivel
         function comprandoCasa(){
             
-            if(dadosDoJogo.banco.posseCasas.includes(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].nome)){
+            if(dadosDoJogo.banco.posseCasas.includes(dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].nome)){
                 // Criando janela de Compra de casa
                 let popUpComprarCasa = document.createElement("div")
                 popUpComprarCasa.className = "vendendo-uma-casa"
                 popUpComprarCasa.innerHTML = `
                 <h1>Esta casa Estar a Venda</h1>
-                <h2>Valor R$ ${dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor}</h2>
+                <h2>Valor R$ ${dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].valor}</h2>
                 <h3>Quer Comprar?</h3>
                 <button id="comprar-sim">sim</button>
                 <button id="comprar-nao">não</button>`
@@ -689,11 +698,11 @@ dadosDoJogo.jogadores.forEach(() => {
                 
                 // Comprando casa quando Clicar em sim
                 document.querySelector(`#comprar-sim`).addEventListener("click", () => {
-                    if(dadosDoJogo.jogadores[0].posseDinheiro >= dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor){
+                    if(dadosDoJogo.jogadores[player].posseDinheiro >= dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].valor){
                         // Transferir dineheiro para o banco
-                        pagarValorParaBanco(dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].valor)
+                        pagarValorParaBanco(dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].valor)
                         // pegando nome do lugar
-                        const nomeDaCasaParaTransferencia = dadosDoJogo.lugares[dadosDoJogo.jogadores[0].playerContagemCasa-1].nome 
+                        const nomeDaCasaParaTransferencia = dadosDoJogo.lugares[dadosDoJogo.jogadores[player].playerContagemCasa-1].nome 
                         
                         const indexDaCasaNoBanco = dadosDoJogo.banco.posseCasas.indexOf(nomeDaCasaParaTransferencia)
                         
@@ -703,7 +712,7 @@ dadosDoJogo.jogadores.forEach(() => {
                         }
                         
                         // adicionando na posse do jogador
-                        dadosDoJogo.jogadores[0].posseCasas.push(nomeDaCasaParaTransferencia)
+                        dadosDoJogo.jogadores[player].posseCasas.push(nomeDaCasaParaTransferencia)
                         
                         // removendo janela de compra de casa
                         document.querySelector(".vendendo-uma-casa").remove()
@@ -720,28 +729,27 @@ dadosDoJogo.jogadores.forEach(() => {
         }
         
     })
-
     // atalho para acessar html
-    const statusBanco = document.getElementById("valor-do-banco")
-    const statusJogador = document.getElementById("valor-do-jogador")
+   
 
     function receberValorDoBanco(valor){
-        if(dadosDoJogo.jogadores[0].status === "normal" || dadosDoJogo.jogadores[0].status === "ferias"){
+        if(dadosDoJogo.jogadores[player].status === "normal" || dadosDoJogo.jogadores[player].status === "ferias"){
         dadosDoJogo.banco.posseDinheiro -= valor
-        dadosDoJogo.jogadores[0].posseDinheiro += valor
+        dadosDoJogo.jogadores[player].posseDinheiro += valor
         // Atualizando Status
         statusBanco.innerText = `R$ ${dadosDoJogo.banco.posseDinheiro}`
-        statusJogador.innerText = `R$ ${dadosDoJogo.jogadores[0].posseDinheiro}`
+        statusJogador.innerText = `R$ ${dadosDoJogo.jogadores[player].posseDinheiro}`
 
         }
     }
     function pagarValorParaBanco(valor){
         dadosDoJogo.banco.posseDinheiro += valor
-        dadosDoJogo.jogadores[0].posseDinheiro -= valor
+        dadosDoJogo.jogadores[player].posseDinheiro -= valor
         // Atualizando Status
         statusBanco.innerText = `R$ ${dadosDoJogo.banco.posseDinheiro}`
-        statusJogador.innerText = `R$ ${dadosDoJogo.jogadores[0].posseDinheiro}`
+        statusJogador.innerText = `R$ ${dadosDoJogo.jogadores[player].posseDinheiro}`
     }
+}
 // }
 // Criando Imaagens no Status do Banco
 for (let i = 0; i < 2; i++) {
@@ -762,10 +770,13 @@ for (let i = 0; i < 2; i++) {
 
     document.querySelector(".banco-casas").appendChild(imagemBanco)
 }
+const statusBanco = document.getElementById("valor-do-banco")
+const statusJogador = document.getElementById("valor-do-jogador")
+
 
 function init(){
-    // jogandoDados()
-    jogadorNaCasa(1)
+    jogadaDoJogador(0)
+    // jogadorNaCasa(1)
     statusBanco.innerText = `R$ ${dadosDoJogo.banco.posseDinheiro}`
     
 }

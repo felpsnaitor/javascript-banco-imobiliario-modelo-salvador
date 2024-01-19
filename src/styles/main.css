@@ -38,8 +38,8 @@
 }
    
 .casa{
-    width: 80px; 
-    height: 60px; 
+    width: 40px; 
+    height: 45px; 
     background-color: #fff;
     border: 1px solid #000;
     justify-content: center;
@@ -49,12 +49,13 @@
 }
 
 .casa > h2{
+    font-size: 8px;
     font-weight: 700;
-    font-size: small;
+
 }
 
 .jogador > img{
-    width: 30px;
+    width: 15px;
 }
 
 .container__dados{
@@ -62,9 +63,9 @@
     align-items: center;
     position: absolute;
     z-index: 1;
-    padding: 160px;
+    padding-left: 100px;
     padding-top: 330px;
-    gap: 40px;
+    gap: 20px;
 }
 
 .dado{
@@ -74,9 +75,9 @@
 }
 
 .dado > img{
-    width: 80px;
+    width: 40px;
     border: 1px solid #000;
-    border-radius: 18px;
+    border-radius: 8px;
 }
 
 .container__tabuleiro__cartas-sorte-reves > .sorte-ou-reves{
@@ -119,12 +120,14 @@
     gap: 30px;
     width: 320px;
 }
+
+
 .caixa-de-itens-do-banco{
     gap: 20px;
 }
 
 .cartoes-de-casa > img , .foto-da-casa > img{
-    width: 90px;
+    width: 30px;
 
 }
 .caixa-de-itens-do-banco {
@@ -134,7 +137,7 @@
 .banco-casas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 160px;
+    width: 80px;
     gap: 15px;
 }
 
@@ -158,4 +161,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.img-do-jogador > img {
+    width: 40px;
 }
